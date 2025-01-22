@@ -1,5 +1,11 @@
 <script setup></script>
 
-<template></template>
+<template>
+  <h1>222</h1>
+</template>
 
-<style scoped></style>
+<style scoped lang="scss">
+h1 {
+  color: $red-1;
+}
+</style>
