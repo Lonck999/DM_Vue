@@ -4,7 +4,7 @@
   <h1>222</h1>
 </template>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 h1 {
   color: $red-1;
 }
