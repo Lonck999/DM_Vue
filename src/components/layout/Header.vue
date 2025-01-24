@@ -41,13 +41,11 @@ const navList = reactive([
 <style lang="scss" scoped>
 .header {
   max-width: 192rem;
-  background-color: pink;
   display: flex;
   align-items: center;
   padding: 1rem 15rem 0 15rem;
   .logo {
-    max-width: 225px;
-    width: 100%;
+    width: 33%;
     display: block;
   }
   .nav {
@@ -60,6 +58,11 @@ const navList = reactive([
       li {
         font-size: 1.6rem;
         font-weight: 700;
+        &:hover {
+          a {
+            color: $green-2;
+          }
+        }
         a {
           color: $black-3;
         }
