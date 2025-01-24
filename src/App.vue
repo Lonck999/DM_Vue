@@ -10,7 +10,7 @@ import Header from './components/layout/Header.vue'
 
 <style lang="scss" scoped>
 .container {
-  width: 100%;
+  width: 192rem;
   margin: 0 auto;
 }
 </style>
