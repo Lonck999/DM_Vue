@@ -19,9 +19,9 @@ const navList = reactive([
 <template>
   <header class="header">
     <RouterLink to="/">
-      <img :src="logo" alt="logo" />
+      <img :src="logo" alt="logo" class="logo" />
     </RouterLink>
-    <nav>
+    <nav class="nav">
       <ul>
         <li v-for="item in navList" :key="item.name">
           <template v-if="item.icon">
@@ -40,8 +40,25 @@ const navList = reactive([
 
 <style lang="scss" scoped>
 .header {
-  width: 100%;
-  height: 100px;
+  max-width: 192rem;
   background-color: pink;
+  display: flex;
+  align-items: center;
+  padding: 1rem 15rem 0 15rem;
+
+  .logo {
+    max-width: 225px;
+    width: 100%;
+    display: block;
+  }
+  .nav {
+    width: 100%;
+
+    ul {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+  }
 }
 </style>
