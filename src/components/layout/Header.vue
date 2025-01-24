@@ -2,9 +2,15 @@
 import logo from '@/assets/img/dm-logo.png'
 </script>
 <template>
-  <div>
+  <header class="header">
     <img :src="logo" alt="logo" />
-  </div>
+  </header>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.header {
+  width: 100%;
+  height: 100px;
+  background-color: pink;
+}
+</style>
