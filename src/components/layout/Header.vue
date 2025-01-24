@@ -40,7 +40,7 @@ const navList = reactive([
 
 <style lang="scss" scoped>
 .header {
-  max-width: 192rem;
+  width: 100%;
   display: flex;
   align-items: center;
   padding: 1rem 15rem 0 15rem;
