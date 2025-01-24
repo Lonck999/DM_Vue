@@ -1,11 +1,11 @@
-<script setup></script>
+<script setup>
+import Header from './components/layout/Header.vue'
+</script>
 
 <template>
-  <h1>222</h1>
+  <div class="container">
+    <Header />
+  </div>
 </template>
 
-<style lang="scss" scoped>
-h1 {
-  color: $red-1;
-}
-</style>
+<style lang="scss" scoped></style>
