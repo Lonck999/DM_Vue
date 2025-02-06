@@ -40,30 +40,32 @@ const navList = reactive([
 
 <style lang="scss" scoped>
 .header {
+  width: 100%;
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  padding: 1rem 15rem 0 15rem;
-  .logo {
-    width: 33%;
+  background: pink;
+
+  a {
+    width: min(19%, 22.5rem);
     display: block;
   }
-  .nav {
+
+  .logo {
     width: 100%;
+  }
+
+  .nav {
     ul {
       display: flex;
       justify-content: flex-end;
       align-items: center;
-      gap: 5.2rem;
       li {
         font-size: 1.6rem;
         font-weight: 700;
-        &:hover {
-          a {
-            color: $green-2;
-          }
-        }
         a {
-          color: $black-3;
+          display: block;
+          width: 100%;
         }
       }
     }
