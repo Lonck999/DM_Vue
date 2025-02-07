@@ -47,7 +47,10 @@ window.addEventListener('resize', () => {
     <a href="/">
       <img :src="logo" alt="logo" class="logo" />
     </a>
-    <img :src="menu" alt="menu" />
+    <input type="checkbox" id="menu" />
+    <label for="menu" class="menu">
+      <img :src="menu" alt="menu" />
+    </label>
   </header>
 </template>
 
@@ -77,6 +80,9 @@ window.addEventListener('resize', () => {
       justify-content: flex-end;
       align-items: center;
       gap: 7%;
+      @media (max-width: 1280px) {
+        gap: 4%;
+      }
 
       li {
         font-size: 1.6rem;
@@ -96,6 +102,29 @@ window.addEventListener('resize', () => {
 }
 
 .rwd-header {
-  width: 100%;
+  width: min(100%, 99.2rem);
+  background: $black-3;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: min(2.5%, 1.5rem) 0;
+  a {
+    width: 45%;
+    display: block;
+    margin-left: min(6%, 15rem);
+
+    .logo {
+      width: 100%;
+    }
+  }
+
+  .menu {
+    width: min(12%, 11rem);
+    margin-right: min(4%, 15rem);
+
+    img {
+      width: 100%;
+    }
+  }
 }
 </style>
