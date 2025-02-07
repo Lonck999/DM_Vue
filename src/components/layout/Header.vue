@@ -108,6 +108,12 @@ window.addEventListener('resize', () => {
   justify-content: space-between;
   align-items: center;
   padding: min(2.5%, 1.5rem) 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+
   a {
     width: 45%;
     display: block;
