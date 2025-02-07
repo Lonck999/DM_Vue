@@ -17,7 +17,7 @@ const navList = reactive([
   { name: 'line', icon: line, link: 'https://lin.ee/AY002Fz' },
 ])
 
-const windowWidth = ref(window.innerWidth)
+const windowWidth = ref(null)
 
 window.addEventListener('resize', () => {
   windowWidth.value = window.innerWidth
