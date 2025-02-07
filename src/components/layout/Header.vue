@@ -79,7 +79,6 @@ window.addEventListener('resize', () => {
       gap: 7%;
 
       li {
-        color: $black-2;
         font-size: 1.6rem;
         font-weight: 700;
         @media (max-width: 1280px) {
@@ -87,6 +86,7 @@ window.addEventListener('resize', () => {
         }
 
         a {
+          color: $black-3;
           width: 100%;
           display: block;
         }
