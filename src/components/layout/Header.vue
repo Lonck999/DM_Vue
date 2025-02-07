@@ -53,7 +53,7 @@ window.addEventListener('resize', () => {
 
 <style lang="scss" scoped>
 .header {
-  width: 100%;
+  width: min(100%, 192rem);
   display: flex;
   justify-content: space-between;
   align-items: center;
