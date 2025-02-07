@@ -2,8 +2,9 @@
 import logo from '@/assets/img/dm-logo.png'
 import fb from '@/assets/img/facebook-icon.png'
 import line from '@/assets/img/line-icon.png'
+import menu from '@/assets/img/white-menu.png'
 import { RouterLink } from 'vue-router'
-import { reactive } from 'vue'
+import { reactive, ref } from 'vue'
 
 const navList = reactive([
   { name: '叫號進度', link: '' },
@@ -15,9 +16,15 @@ const navList = reactive([
   { name: 'facebook', icon: fb, link: 'https://www.facebook.com/dermai.clinic/?locale=zh_TW' },
   { name: 'line', icon: line, link: 'https://lin.ee/AY002Fz' },
 ])
+
+const windowWidth = ref(window.innerWidth)
+
+window.addEventListener('resize', () => {
+  windowWidth.value = window.innerWidth
+})
 </script>
 <template>
-  <header class="header">
+  <header class="header" v-if="windowWidth > 992">
     <RouterLink to="/">
       <img :src="logo" alt="logo" class="logo" />
     </RouterLink>
@@ -36,6 +43,12 @@ const navList = reactive([
       </ul>
     </nav>
   </header>
+  <header class="rwd-header" v-else>
+    <a href="/">
+      <img :src="logo" alt="logo" class="logo" />
+    </a>
+    <img :src="menu" alt="menu" />
+  </header>
 </template>
 
 <style lang="scss" scoped>
@@ -44,7 +57,6 @@ const navList = reactive([
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: pink;
 
   a {
     width: min(19%, 22.5rem);
@@ -57,7 +69,7 @@ const navList = reactive([
   }
 
   .nav {
-    width: 60%;
+    width: 70%;
     margin-right: min(8%, 15rem);
 
     ul {
@@ -65,10 +77,15 @@ const navList = reactive([
       justify-content: flex-end;
       align-items: center;
       gap: 7%;
-      background: orange;
+
       li {
+        color: $black-2;
         font-size: 1.6rem;
         font-weight: 700;
+        @media (max-width: 1280px) {
+          font-size: 1.2rem;
+        }
+
         a {
           width: 100%;
           display: block;
@@ -76,5 +93,9 @@ const navList = reactive([
       }
     }
   }
+}
+
+.rwd-header {
+  width: 100%;
 }
 </style>
