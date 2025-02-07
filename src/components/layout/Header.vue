@@ -49,6 +49,7 @@ const navList = reactive([
   a {
     width: min(19%, 22.5rem);
     display: block;
+    margin-left: min(8%, 15rem);
   }
 
   .logo {
@@ -56,16 +57,21 @@ const navList = reactive([
   }
 
   .nav {
+    width: 60%;
+    margin-right: min(8%, 15rem);
+
     ul {
       display: flex;
       justify-content: flex-end;
       align-items: center;
+      gap: 7%;
+      background: orange;
       li {
         font-size: 1.6rem;
         font-weight: 700;
         a {
-          display: block;
           width: 100%;
+          display: block;
         }
       }
     }
