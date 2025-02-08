@@ -1,12 +1,8 @@
-<script setup>
-import { ref } from 'vue'
-
-const count = ref(0)
-</script>
+<script setup></script>
 
 <template>
   <div>
-    <h1>{{ count }}</h1>
+    <h1>這裡要顯示內容</h1>
   </div>
 </template>
 
