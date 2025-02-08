@@ -5,7 +5,7 @@ import line from '@/assets/img/line-icon.png'
 import menu from '@/assets/img/white-menu.png'
 import { RouterLink } from 'vue-router'
 import { reactive, ref } from 'vue'
-const navList = reactive([
+const navLists = reactive([
   { name: '叫號進度', link: '' },
   { name: '門診時間', link: '' },
   { name: '醫療團隊', link: '' },
@@ -39,14 +39,14 @@ window.addEventListener('resize', () => {
       </RouterLink>
       <nav class="nav">
         <ul>
-          <li v-for="item in navList" :key="item.name">
-            <template v-if="item.icon">
-              <a :href="item.link">
-                <img :src="item.icon" :alt="item.name" />
+          <li v-for="navList in navLists" :key="navList.name">
+            <template v-if="navList.icon">
+              <a :href="navList.link">
+                <img :src="navList.icon" :alt="navList.name" />
               </a>
             </template>
             <template v-else>
-              <a :href="item.link">{{ item.name }}</a>
+              <a :href="navList.link">{{ navList.name }}</a>
             </template>
           </li>
         </ul>
@@ -65,8 +65,8 @@ window.addEventListener('resize', () => {
     </header>
     <nav class="rwd-nav">
       <ul>
-        <li v-for="item in navList" :key="item.name">
-          <a :href="item.link">{{ item.name }}</a>
+        <li v-for="navList in navLists" :key="navList.name">
+          <a :href="navList.link">{{ navList.name }}</a>
         </li>
       </ul>
     </nav>
@@ -130,11 +130,6 @@ window.addEventListener('resize', () => {
   justify-content: space-between;
   align-items: center;
   padding: min(2.5%, 1.5rem) 0;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 100;
 
   a {
     width: 55%;
@@ -164,7 +159,6 @@ window.addEventListener('resize', () => {
   height: 100vh;
   background: $black-3;
   transform: translateX(-100%);
-  margin-top: 17%;
   transition: all 0.3s ease;
 
   ul {
