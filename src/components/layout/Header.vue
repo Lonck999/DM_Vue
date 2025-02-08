@@ -5,7 +5,6 @@ import line from '@/assets/img/line-icon.png'
 import menu from '@/assets/img/white-menu.png'
 import { RouterLink } from 'vue-router'
 import { reactive, ref } from 'vue'
-
 const navList = reactive([
   { name: '叫號進度', link: '' },
   { name: '門診時間', link: '' },
@@ -16,42 +15,62 @@ const navList = reactive([
   { name: 'facebook', icon: fb, link: 'https://www.facebook.com/dermai.clinic/?locale=zh_TW' },
   { name: 'line', icon: line, link: 'https://lin.ee/AY002Fz' },
 ])
-
 const windowWidth = ref(window.innerWidth)
+const isMenuOpen = ref(false)
+
+function toggleMenu() {
+  isMenuOpen.value = !isMenuOpen.value
+  if (isMenuOpen.value) {
+    document.querySelector('.rwd-nav').style.transform = 'translateX(0.1px)'
+  } else {
+    document.querySelector('.rwd-nav').style.transform = 'translateX(-100%)'
+  }
+}
 
 window.addEventListener('resize', () => {
   windowWidth.value = window.innerWidth
 })
 </script>
 <template>
-  <header class="header" v-if="windowWidth > 992">
-    <RouterLink to="/">
-      <img :src="logo" alt="logo" class="logo" />
-    </RouterLink>
-    <nav class="nav">
+  <template v-if="windowWidth > 992">
+    <header class="header">
+      <RouterLink to="/">
+        <img :src="logo" alt="logo" class="logo" />
+      </RouterLink>
+      <nav class="nav">
+        <ul>
+          <li v-for="item in navList" :key="item.name">
+            <template v-if="item.icon">
+              <a :href="item.link">
+                <img :src="item.icon" :alt="item.name" />
+              </a>
+            </template>
+            <template v-else>
+              <a :href="item.link">{{ item.name }}</a>
+            </template>
+          </li>
+        </ul>
+      </nav>
+    </header>
+  </template>
+  <template v-else>
+    <header class="rwd-header">
+      <a href="/">
+        <img :src="logo" alt="logo" class="logo" />
+      </a>
+      <input type="checkbox" id="menu" />
+      <label for="menu" class="menu" @click="toggleMenu">
+        <img :src="menu" alt="menu" />
+      </label>
+    </header>
+    <nav class="rwd-nav">
       <ul>
         <li v-for="item in navList" :key="item.name">
-          <template v-if="item.icon">
-            <a :href="item.link">
-              <img :src="item.icon" :alt="item.name" />
-            </a>
-          </template>
-          <template v-else>
-            <a :href="item.link">{{ item.name }}</a>
-          </template>
+          <a :href="item.link">{{ item.name }}</a>
         </li>
       </ul>
     </nav>
-  </header>
-  <header class="rwd-header" v-else>
-    <a href="/">
-      <img :src="logo" alt="logo" class="logo" />
-    </a>
-    <input type="checkbox" id="menu" />
-    <label for="menu" class="menu">
-      <img :src="menu" alt="menu" />
-    </label>
-  </header>
+  </template>
 </template>
 
 <style lang="scss" scoped>
@@ -118,7 +137,7 @@ window.addEventListener('resize', () => {
   z-index: 100;
 
   a {
-    width: 45%;
+    width: 55%;
     display: block;
     margin-left: min(6%, 15rem);
 
@@ -127,12 +146,38 @@ window.addEventListener('resize', () => {
     }
   }
 
+  #menu {
+    display: none;
+  }
+
   .menu {
-    width: min(12%, 11rem);
+    width: min(15%, 11rem);
     margin-right: min(4%, 15rem);
 
     img {
       width: 100%;
+    }
+  }
+}
+.rwd-nav {
+  width: min(100%, 99.2rem);
+  height: 100vh;
+  background: $black-3;
+  transform: translateX(-100%);
+  margin-top: 17%;
+  transition: all 0.3s ease;
+
+  ul {
+    text-align: right;
+    font-size: min(3rem, 3.6rem);
+    font-weight: 700;
+
+    li {
+      padding: 8% 5% 4% 0;
+
+      a {
+        color: $white-1;
+      }
     }
   }
 }
