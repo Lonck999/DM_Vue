@@ -95,6 +95,9 @@ window.addEventListener('resize', () => {
           color: $black-3;
           width: 100%;
           display: block;
+          &:hover {
+            color: $green-2;
+          }
         }
       }
     }
