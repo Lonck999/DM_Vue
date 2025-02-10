@@ -98,16 +98,16 @@ window.addEventListener('resize', () => {
       display: flex;
       justify-content: flex-end;
       align-items: center;
-      gap: 7%;
+      gap: 5%;
       @media (max-width: 1280px) {
         gap: 4%;
       }
 
       li {
-        font-size: 1.6rem;
+        font-size: 2rem;
         font-weight: 700;
         @media (max-width: 1280px) {
-          font-size: 1.2rem;
+          font-size: 1.6rem;
         }
 
         a {
