@@ -98,7 +98,7 @@ window.addEventListener('resize', () => {
       display: flex;
       justify-content: flex-end;
       align-items: center;
-      gap: 5%;
+      gap: 3.5%;
       @media (max-width: 1280px) {
         gap: 4%;
       }

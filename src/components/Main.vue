@@ -1,6 +1,5 @@
 <script setup>
 import { reactive } from 'vue'
-
 const title = reactive({
   titleH1: '立即加入!',
   titleH2: '德美診所官方LINE帳號',
@@ -36,9 +35,32 @@ const title = reactive({
     <div class="qrcode"></div>
   </main>
 </template>
-<style>
-.title {
-  width: 100%;
-  height: 100%;
+<style lang="scss" scoped>
+main {
+  width: min(100%, 192rem);
+  .title {
+    display: flex;
+    justify-content: center;
+    padding: 18rem 0;
+
+    .title-H {
+      color: $black-3;
+      font-size: 5rem;
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: 0.27rem;
+    }
+    .title-P {
+      width: 26rem;
+      color: $black-3;
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin-left: -30rem;
+      span {
+        color: $green-1;
+        line-height: 1.4;
+      }
+    }
+  }
 }
 </style>
