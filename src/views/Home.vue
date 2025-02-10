@@ -1,9 +1,16 @@
-<script setup></script>
+<script setup>
+import Header from '../components/layout/Header.vue'
+</script>
 
 <template>
-  <div>
-    <h1>這裡要顯示內容</h1>
+  <div class="home">
+    <Header />
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.home {
+  width: 100%;
+  height: 100%;
+}
+</style>
