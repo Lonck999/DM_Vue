@@ -14,12 +14,12 @@ const title = reactive({
 
 <template>
   <main>
-    <div>
-      <div>
+    <div class="title">
+      <div class="title-H">
         <h1>{{ title.titleH1 }}</h1>
         <h2>{{ title.titleH2 }}</h2>
       </div>
-      <div>
+      <div class="title-P">
         <p>
           {{ title.titleP1 }}
           <span>{{ title.titleSpan1 }}</span>
@@ -33,7 +33,12 @@ const title = reactive({
         </p>
       </div>
     </div>
-    <div></div>
+    <div class="qrcode"></div>
   </main>
 </template>
-<style></style>
+<style>
+.title {
+  width: 100%;
+  height: 100%;
+}
+</style>

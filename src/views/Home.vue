@@ -12,7 +12,7 @@ import Main from '../components/Main.vue'
 
 <style scoped>
 .home {
-  width: 100%;
+  width: min(100%, 192rem);
   height: 100%;
   background: url('../assets/img/background-1.png') no-repeat center center;
 }
