@@ -19,15 +19,6 @@ const windowWidth = ref(window.innerWidth)
 const isMenuOpen = ref(false)
 let transform = ref('translateX(-100%)')
 
-// function toggleMenu() {
-//   isMenuOpen.value = !isMenuOpen.value
-//   if (isMenuOpen.value) {
-//     document.querySelector('.rwd-nav').style.transform = 'translateX(0.1px)'
-//   } else {
-//     document.querySelector('.rwd-nav').style.transform = 'translateX(-100%)'
-//   }
-// }
-
 function toggleMenu() {
   isMenuOpen.value = !isMenuOpen.value
   transform.value = isMenuOpen.value ? 'translateX(0%)' : 'translateX(-100%)'
