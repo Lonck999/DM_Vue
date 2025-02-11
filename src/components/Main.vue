@@ -1,4 +1,5 @@
 <script setup>
+import talk from '@/assets/img/talk-1.png'
 import { reactive } from 'vue'
 const title = reactive({
   titleH1: '立即加入!',
@@ -31,11 +32,42 @@ const title = reactive({
           。
         </p>
       </div>
+      <img :src="talk" alt="talk" class="talk" />
     </div>
     <div class="qrcode"></div>
   </main>
 </template>
 <style lang="scss" scoped>
+@keyframes shake {
+  10%,
+  90% {
+    transform-origin: 0% 100%;
+    transform: rotateZ(-2deg);
+  }
+
+  20%,
+  80% {
+    transform-origin: 0% 100%;
+    transform: rotateZ(2deg);
+  }
+
+  30%,
+  70% {
+    transform-origin: 0% 100%;
+    transform: rotateZ(-4deg);
+  }
+
+  40%,
+  60% {
+    transform-origin: 0% 100%;
+    transform: rotateZ(4deg);
+  }
+
+  50% {
+    transform-origin: 0% 100%;
+    transform: rotateZ(-4deg);
+  }
+}
 main {
   width: min(100%, 192rem);
   .title {
@@ -60,6 +92,12 @@ main {
         color: $green-1;
         line-height: 1.4;
       }
+    }
+    .talk {
+      width: 21rem;
+      height: 100%;
+      margin-top: -4.8%;
+      animation: shake 2s infinite;
     }
   }
 }
