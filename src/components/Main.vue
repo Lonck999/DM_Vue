@@ -37,14 +37,16 @@ const title = reactive({
     </div>
     <div class="qrcode">
       <img :src="qrcode" alt="qrcode" />
-      <div class="qrcode-text">
-        <p>掃描條碼或點我加入！</p>
-      </div>
-      <div class="qrcode-reserve">
-        <p>APP預約掛號</p>
-      </div>
-      <div class="qrcode-reserve">
-        <p>網路預約掛號</p>
+      <div>
+        <div class="qrcode-text">
+          <p>掃描條碼或點我加入！</p>
+        </div>
+        <div class="qrcode-reserve">
+          <p>APP預約掛號</p>
+        </div>
+        <div class="qrcode-reserve">
+          <p>網路預約掛號</p>
+        </div>
       </div>
     </div>
   </main>
@@ -86,6 +88,10 @@ main {
     display: flex;
     justify-content: center;
     padding-top: 18rem;
+    position: relative;
+    @media (max-width: 992px) {
+      padding-top: 12rem;
+    }
 
     .title-H {
       color: $black-3;
@@ -93,6 +99,12 @@ main {
       font-weight: 700;
       line-height: 1.1;
       letter-spacing: 0.27rem;
+      @media (max-width: 992px) {
+        font-size: 4rem;
+      }
+      @media (max-width: 576px) {
+        font-size: 3.2rem;
+      }
     }
     .title-P {
       width: 26rem;
@@ -104,12 +116,22 @@ main {
         color: $green-1;
         line-height: 1.4;
       }
+      @media (max-width: 992px) {
+        display: none;
+      }
     }
     .talk {
       width: 21rem;
-      height: 100%;
-      margin-top: -4.8%;
+      object-fit: contain;
+      margin-top: -12rem;
       animation: shake 2s infinite;
+      @media (max-width: 992px) {
+        width: 15rem;
+        margin-top: 0;
+        position: absolute;
+        top: 28%;
+        left: 48%;
+      }
     }
   }
   .qrcode {
@@ -126,10 +148,23 @@ main {
     font-size: 1.8rem;
     font-weight: 700;
     text-shadow: -2px 2px 2px rgba(0, 0, 0, 0.25);
+    @media (max-width: 992px) {
+      padding: 1.2rem 0;
+    }
 
     img {
       width: min(12%, 7.5rem);
-      height: 100%;
+      object-fit: contain;
+      @media (max-width: 992px) {
+        width: 10rem;
+      }
+    }
+    div {
+      display: flex;
+      gap: 1.2rem;
+      @media (max-width: 992px) {
+        display: block;
+      }
     }
 
     .qrcode-text,
@@ -137,6 +172,11 @@ main {
       background: linear-gradient(180deg, #4fd9d5 51.03%, #2bc0bc 51.04%);
       border-radius: 0.5rem;
       padding: 1.5rem 2.5rem;
+    }
+    @media (max-width: 992px) {
+      .qrcode-reserve {
+        margin-top: 1.5rem;
+      }
     }
   }
 }
