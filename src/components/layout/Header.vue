@@ -17,14 +17,20 @@ const navLists = reactive([
 ])
 const windowWidth = ref(window.innerWidth)
 const isMenuOpen = ref(false)
+let transform = ref('translateX(-100%)')
+
+// function toggleMenu() {
+//   isMenuOpen.value = !isMenuOpen.value
+//   if (isMenuOpen.value) {
+//     document.querySelector('.rwd-nav').style.transform = 'translateX(0.1px)'
+//   } else {
+//     document.querySelector('.rwd-nav').style.transform = 'translateX(-100%)'
+//   }
+// }
 
 function toggleMenu() {
   isMenuOpen.value = !isMenuOpen.value
-  if (isMenuOpen.value) {
-    document.querySelector('.rwd-nav').style.transform = 'translateX(0.1px)'
-  } else {
-    document.querySelector('.rwd-nav').style.transform = 'translateX(-100%)'
-  }
+  transform.value = isMenuOpen.value ? 'translateX(0%)' : 'translateX(-100%)'
 }
 
 window.addEventListener('resize', () => {
@@ -63,7 +69,7 @@ window.addEventListener('resize', () => {
         <img :src="menu" alt="menu" />
       </label>
     </header>
-    <nav class="rwd-nav">
+    <nav class="rwd-nav" v-show="isMenuOpen">
       <ul>
         <li v-for="navList in navLists" :key="navList.name">
           <a :href="navList.link">{{ navList.name }}</a>
@@ -158,12 +164,8 @@ window.addEventListener('resize', () => {
   width: min(100%, 99.2rem);
   height: 100vh;
   background: $black-3;
-  transform: translateX(-100%);
-  transition: all 0.3s ease;
-  position: fixed;
-  top: 11%;
-  left: 0;
-  z-index: 100;
+  transform: v-bind(transform);
+  transition: transform 3s ease;
 
   ul {
     text-align: right;
