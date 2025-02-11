@@ -160,6 +160,10 @@ window.addEventListener('resize', () => {
   background: $black-3;
   transform: translateX(-100%);
   transition: all 0.3s ease;
+  position: fixed;
+  top: 11%;
+  left: 0;
+  z-index: 100;
 
   ul {
     text-align: right;
