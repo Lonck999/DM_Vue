@@ -165,7 +165,7 @@ window.addEventListener('resize', () => {
   height: 100vh;
   background: $black-3;
   transform: v-bind(transform);
-  transition: transform 3s ease;
+  transition: all 3s ease;
 
   ul {
     text-align: right;
