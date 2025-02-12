@@ -60,7 +60,7 @@ window.addEventListener('resize', () => {
         <img :src="menu" alt="menu" />
       </label>
     </header>
-    <nav class="rwd-nav" v-show="isMenuOpen">
+    <nav class="rwd-nav" v-if="isMenuOpen">
       <ul>
         <li v-for="navList in navLists" :key="navList.name">
           <a :href="navList.link">{{ navList.name }}</a>
