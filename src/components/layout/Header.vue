@@ -60,7 +60,7 @@ window.addEventListener('resize', () => {
         <img :src="menu" alt="menu" />
       </label>
     </header>
-    <nav class="rwd-nav" v-if="isMenuOpen">
+    <nav class="rwd-nav">
       <ul>
         <li v-for="navList in navLists" :key="navList.name">
           <a :href="navList.link">{{ navList.name }}</a>
@@ -119,7 +119,6 @@ window.addEventListener('resize', () => {
     }
   }
 }
-
 .rwd-header {
   width: min(100%, 99.2rem);
   background: $black-3;
@@ -156,7 +155,12 @@ window.addEventListener('resize', () => {
   height: 100vh;
   background: $black-3;
   transform: v-bind(transform);
-  transition: all 3s ease;
+  transition: all 0.3s ease;
+  margin-top: 16%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
 
   ul {
     text-align: right;
