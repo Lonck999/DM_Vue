@@ -1,8 +1,12 @@
-<script setup></script>
+<script setup>
+import { ref } from 'vue'
+
+const now = ref('叫號進度')
+</script>
 
 <template>
   <div class="number">
-    <h1></h1>
+    <h1>{{ now }}</h1>
     <div></div>
   </div>
 </template>
