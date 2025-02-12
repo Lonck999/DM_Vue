@@ -14,5 +14,11 @@ const now = ref('叫號進度')
 <style lang="scss" scoped>
 .number {
   width: min(100%, 192rem);
+
+  h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: $white-3;
+  }
 }
 </style>
