@@ -1,12 +1,14 @@
 <script setup>
 import Header from '@/components/layout/Header.vue'
 import Main from '@/components/Main.vue'
+import Number from '@/components/Number.vue'
 </script>
 
 <template>
   <div class="home">
     <Header />
     <Main />
+    <Number />
   </div>
 </template>
 
