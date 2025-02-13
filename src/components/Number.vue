@@ -87,6 +87,10 @@ const numbers = reactive([
     grid-template-columns: repeat(3, 1fr);
     justify-items: center;
 
+    @media screen and (max-width: 992px) {
+      grid-template-columns: repeat(1, 1fr);
+    }
+
     &-item {
       width: 100%;
       background-size: cover;
@@ -95,6 +99,18 @@ const numbers = reactive([
       align-items: center;
       gap: 4.5rem;
       text-align: center;
+
+      @media screen and (max-width: 1280px) {
+        gap: 2rem;
+      }
+
+      @media screen and (max-width: 992px) {
+        gap: 4.5rem;
+      }
+
+      @media screen and (max-width: 768px) {
+        gap: 2rem;
+      }
 
       &-title {
         background: $green-2;
@@ -105,11 +121,35 @@ const numbers = reactive([
         color: $white-3;
         padding: 6rem 2rem;
         margin: 4.5rem 0;
+
+        @media screen and (max-width: 1280px) {
+          padding: 5rem 1.5rem;
+        }
+
+        @media screen and (max-width: 992px) {
+          padding: 6rem 2rem;
+        }
+
+        @media screen and (max-width: 768px) {
+          padding: 5rem 1.5rem;
+        }
       }
 
       &-content {
         color: $white-3;
         font-size: 2rem;
+
+        @media screen and (max-width: 1280px) {
+          font-size: 1.8rem;
+        }
+
+        @media screen and (max-width: 992px) {
+          font-size: 2.5rem;
+        }
+
+        @media screen and (max-width: 768px) {
+          font-size: 2rem;
+        }
 
         &-department,
         &-doctor {
