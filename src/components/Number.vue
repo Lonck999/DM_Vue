@@ -48,19 +48,19 @@ const numbers = reactive([
         class="number-box-item"
       >
         <p v-html="number.title" class="number-box-item-title"></p>
-        <div>
-          <p>
+        <div class="number-box-item-content">
+          <p class="number-box-item-content-department">
             科別 - <span>{{ number.department }}</span>
           </p>
           <p>看診號碼</p>
-          <p>{{ number.number }}</p>
+          <p class="number-box-item-content-number">{{ number.number }}</p>
         </div>
-        <div>
-          <p>
+        <div class="number-box-item-content">
+          <p class="number-box-item-content-doctor">
             醫師 - <span>{{ number.doctor }}</span>
           </p>
           <p>候診人數</p>
-          <p>{{ number.waiting }}</p>
+          <p class="number-box-item-content-waiting">{{ number.waiting }}</p>
         </div>
       </div>
     </div>
@@ -93,12 +93,45 @@ const numbers = reactive([
       display: flex;
       justify-content: center;
       align-items: center;
+      gap: 4.5rem;
       text-align: center;
 
       &-title {
-        font-size: 3.5rem;
+        background: $green-2;
+        border-radius: 0.5rem;
+        font-size: 3.2rem;
         font-weight: 700;
+        line-height: 1.2;
         color: $white-3;
+        padding: 6rem 2rem;
+        margin: 4.5rem 0;
+      }
+
+      &-content {
+        color: $white-3;
+        font-size: 2rem;
+
+        &-department,
+        &-doctor {
+          margin-bottom: 5rem;
+        }
+
+        span {
+          color: $green-3;
+        }
+
+        &-number,
+        &-waiting {
+          margin-top: 1.5rem;
+          color: $green-3;
+          font-size: 5.5rem;
+          font-weight: 700;
+          text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        }
+
+        &-waiting {
+          color: $white-3;
+        }
       }
     }
   }
