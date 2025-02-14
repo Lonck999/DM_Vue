@@ -1,12 +1,14 @@
 <script setup>
 import Main from '@/components/Main.vue'
 import Number from '@/components/Number.vue'
+import Schedule from '@/components/Schedule.vue'
 </script>
 
 <template>
   <div class="home">
     <Main />
     <Number />
+    <Schedule />
   </div>
 </template>
 
