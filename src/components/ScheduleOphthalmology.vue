@@ -8,7 +8,7 @@ const ophthalmology = reactive({
 </script>
 <template>
   <div class="scheduleOphthalmology">
-    <div>
+    <div class="scheduleOphthalmology-title">
       <p>{{ ophthalmology.title }}</p>
       <p>
         {{ ophthalmology.note }}
@@ -137,4 +137,27 @@ const ophthalmology = reactive({
   </div>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.scheduleOphthalmology {
+  width: min(100%, 180rem);
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0px 0.4rem 2rem rgba(0, 0, 0, 0.05);
+  border-radius: 1rem;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+
+  .scheduleOphthalmology-title {
+    display: flex;
+    align-items: center;
+
+    p:first-child {
+      background: $green-1;
+      font-size: 2.2rem;
+      font-weight: 700;
+      letter-spacing: 0.11rem;
+      color: $white-3;
+      padding: 1.5rem 3.5rem;
+    }
+  }
+}
+</style>
