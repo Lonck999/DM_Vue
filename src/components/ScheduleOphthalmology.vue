@@ -110,25 +110,39 @@ const { wang, xu, huang } = toRefs(doctor)
               <p>{{ morningTime }}</p>
             </td>
             <td>
-              <p>{{ wang }}</p>
+              <a href="/">
+                <p>{{ wang }}</p>
+              </a>
             </td>
             <td>
-              <p>{{ wang }}</p>
+              <a href="/">
+                <p>{{ wang }}</p>
+              </a>
             </td>
             <td>
-              <p>{{ wang }}</p>
+              <a href="/">
+                <p>{{ wang }}</p>
+              </a>
             </td>
             <td>
-              <p>{{ xu }}</p>
+              <a href="/">
+                <p>{{ xu }}</p>
+              </a>
             </td>
             <td>
-              <p>{{ huang }}</p>
+              <a href="/">
+                <p>{{ huang }}</p>
+              </a>
             </td>
             <td>
-              <p>{{ wang }}</p>
+              <a href="/">
+                <p>{{ wang }}</p>
+              </a>
             </td>
             <td>
-              <p></p>
+              <a href="/">
+                <p></p>
+              </a>
             </td>
           </tr>
           <tr>
@@ -137,25 +151,39 @@ const { wang, xu, huang } = toRefs(doctor)
               <p>{{ afternoonTime }}</p>
             </td>
             <td>
-              <p>{{ xu }}</p>
+              <a href="/">
+                <p>{{ xu }}</p>
+              </a>
             </td>
             <td>
-              <p>{{ huang }}</p>
+              <a href="/">
+                <p>{{ huang }}</p>
+              </a>
             </td>
             <td>
-              <p>{{ wang }}</p>
+              <a href="/">
+                <p>{{ wang }}</p>
+              </a>
             </td>
             <td>
-              <p></p>
+              <a href="/">
+                <p></p>
+              </a>
             </td>
             <td>
-              <p>{{ wang }}</p>
+              <a href="/">
+                <p>{{ wang }}</p>
+              </a>
             </td>
             <td>
-              <p></p>
+              <a href="/">
+                <p></p>
+              </a>
             </td>
             <td>
-              <p></p>
+              <a href="/">
+                <p></p>
+              </a>
             </td>
           </tr>
           <tr>
@@ -164,25 +192,39 @@ const { wang, xu, huang } = toRefs(doctor)
               <p>{{ eveningTime }}</p>
             </td>
             <td>
-              <p></p>
+              <a href="/">
+                <p></p>
+              </a>
             </td>
             <td>
-              <p></p>
+              <a href="/">
+                <p></p>
+              </a>
             </td>
             <td>
-              <p></p>
+              <a href="/">
+                <p></p>
+              </a>
             </td>
             <td>
-              <p>{{ wang }}</p>
+              <a href="/">
+                <p>{{ wang }}</p>
+              </a>
             </td>
             <td>
-              <p></p>
+              <a href="/">
+                <p></p>
+              </a>
             </td>
             <td>
-              <p></p>
+              <a href="/">
+                <p></p>
+              </a>
             </td>
             <td>
-              <p></p>
+              <a href="/">
+                <p></p>
+              </a>
             </td>
           </tr>
         </tbody>
@@ -280,6 +322,18 @@ const { wang, xu, huang } = toRefs(doctor)
 
           p:first-child {
             line-height: 1.4;
+          }
+        }
+        td:not(:first-child) {
+          a {
+            text-decoration: underline;
+            text-decoration-color: $green-1;
+
+            p {
+              color: $green-1;
+              font-size: 2.2rem;
+              font-weight: 700;
+            }
           }
         }
       }
