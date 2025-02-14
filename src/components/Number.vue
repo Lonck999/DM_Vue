@@ -33,7 +33,7 @@ const numbers = reactive([
 </script>
 
 <template>
-  <div class="number">
+  <section class="number">
     <h1>{{ now }}</h1>
     <div class="number-box">
       <div
@@ -64,7 +64,7 @@ const numbers = reactive([
         </div>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <style lang="scss" scoped>
