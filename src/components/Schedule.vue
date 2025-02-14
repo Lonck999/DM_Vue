@@ -1,17 +1,18 @@
 <script setup>
 import ScheduleOphthalmology from './ScheduleOphthalmology.vue'
-import { ref } from 'vue'
-
-const schedule = ref({
+import { reactive, toRefs } from 'vue'
+const schedule = reactive({
   title: '門診時間',
   note: '點擊醫生姓名可進行網路預約',
 })
+const { title, note } = toRefs(schedule)
 </script>
+
 <template>
   <section class="schedule">
     <div class="schedule-title">
-      <h2>{{ schedule.title }}</h2>
-      <p>{{ schedule.note }}</p>
+      <h2>{{ title }}</h2>
+      <p>{{ note }}</p>
     </div>
     <ScheduleOphthalmology />
   </section>
