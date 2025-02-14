@@ -1,0 +1,140 @@
+<script setup>
+import { reactive } from 'vue'
+
+const ophthalmology = reactive({
+  title: '眼科門診',
+  note: '視力保健、視力檢查、一般眼疾、近視雷射矯正、老花矯正、白內障超音波乳化治療、視網膜治療、飛蚊症雷射治療、青光眼治療、角膜塑型矯正等眼科手術。',
+})
+</script>
+<template>
+  <div class="schedule">
+    <div>
+      <p>{{ ophthalmology.title }}</p>
+      <p>
+        {{ ophthalmology.note }}
+      </p>
+    </div>
+    <div>
+      <table>
+        <thead>
+          <tr>
+            <th><p>門診時間/星期</p></th>
+            <th>
+              <p>星期一</p>
+              <p>MON</p>
+            </th>
+            <th>
+              <p>星期二</p>
+              <p>TUE</p>
+            </th>
+            <th>
+              <p>星期三</p>
+              <p>WED</p>
+            </th>
+            <th>
+              <p>星期四</p>
+              <p>THU</p>
+            </th>
+            <th>
+              <p>星期五</p>
+              <p>FRI</p>
+            </th>
+            <th>
+              <p>星期六</p>
+              <p>SAT</p>
+            </th>
+            <th>
+              <p>星期日</p>
+              <p>SUN</p>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <p>上午</p>
+              <p>09:00-12:00</p>
+            </td>
+            <td>
+              <p>1</p>
+            </td>
+            <td>
+              <p>1</p>
+            </td>
+            <td>
+              <p>1</p>
+            </td>
+            <td>
+              <p>1</p>
+            </td>
+            <td>
+              <p>1</p>
+            </td>
+            <td>
+              <p>1</p>
+            </td>
+            <td>
+              <p>1</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>下午</p>
+              <p>13:00-16:00</p>
+            </td>
+            <td>
+              <p>1</p>
+            </td>
+            <td>
+              <p>1</p>
+            </td>
+            <td>
+              <p>1</p>
+            </td>
+            <td>
+              <p>1</p>
+            </td>
+            <td>
+              <p>1</p>
+            </td>
+            <td>
+              <p>1</p>
+            </td>
+            <td>
+              <p>1</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>晚上</p>
+              <p>18:30-21:30</p>
+            </td>
+            <td>
+              <p>1</p>
+            </td>
+            <td>
+              <p>1</p>
+            </td>
+            <td>
+              <p>1</p>
+            </td>
+            <td>
+              <p>1</p>
+            </td>
+            <td>
+              <p>1</p>
+            </td>
+            <td>
+              <p>1</p>
+            </td>
+            <td>
+              <p>1</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</template>
+
+<style lang="scss" scoped></style>
