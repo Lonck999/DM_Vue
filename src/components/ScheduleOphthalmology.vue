@@ -1,10 +1,56 @@
 <script setup>
-import { reactive } from 'vue'
+import { reactive, toRefs } from 'vue'
 
 const ophthalmology = reactive({
   title: '眼科門診',
   note: '視力保健、視力檢查、一般眼疾、近視雷射矯正、老花矯正、白內障超音波乳化治療、視網膜治療、飛蚊症雷射治療、青光眼治療、角膜塑型矯正等眼科手術。',
 })
+const schedule = reactive({
+  week: '門診時間/星期',
+  monCH: '星期一',
+  monEN: 'MON',
+  tueCH: '星期二',
+  tueEN: 'TUE',
+  wedCH: '星期三',
+  wedEN: 'WED',
+  thuCH: '星期四',
+  thuEN: 'THU',
+  friCH: '星期五',
+  friEN: 'FRI',
+  satCH: '星期六',
+  satEN: 'SAT',
+  sunCH: '星期日',
+  sunEN: 'SUN',
+  morning: '上午',
+  morningTime: '09:00-12:00',
+  afternoon: '下午',
+  afternoonTime: '13:00-16:00',
+  evening: '晚上',
+  eveningTime: '18:30-21:30',
+})
+const {
+  week,
+  monCH,
+  monEN,
+  tueCH,
+  tueEN,
+  wedCH,
+  wedEN,
+  thuCH,
+  thuEN,
+  friCH,
+  friEN,
+  satCH,
+  satEN,
+  sunCH,
+  sunEN,
+  morning,
+  morningTime,
+  afternoon,
+  afternoonTime,
+  evening,
+  eveningTime,
+} = toRefs(schedule)
 </script>
 <template>
   <div class="scheduleOphthalmology">
@@ -15,45 +61,47 @@ const ophthalmology = reactive({
       </p>
     </div>
     <div>
-      <table>
+      <table class="scheduleOphthalmology-table">
         <thead>
           <tr>
-            <th><p>門診時間/星期</p></th>
             <th>
-              <p>星期一</p>
-              <p>MON</p>
+              <p>{{ week }}</p>
             </th>
             <th>
-              <p>星期二</p>
-              <p>TUE</p>
+              <p>{{ monCH }}</p>
+              <p>{{ monEN }}</p>
             </th>
             <th>
-              <p>星期三</p>
-              <p>WED</p>
+              <p>{{ tueCH }}</p>
+              <p>{{ tueEN }}</p>
             </th>
             <th>
-              <p>星期四</p>
-              <p>THU</p>
+              <p>{{ wedCH }}</p>
+              <p>{{ wedEN }}</p>
             </th>
             <th>
-              <p>星期五</p>
-              <p>FRI</p>
+              <p>{{ thuCH }}</p>
+              <p>{{ thuEN }}</p>
             </th>
             <th>
-              <p>星期六</p>
-              <p>SAT</p>
+              <p>{{ friCH }}</p>
+              <p>{{ friEN }}</p>
             </th>
             <th>
-              <p>星期日</p>
-              <p>SUN</p>
+              <p>{{ satCH }}</p>
+              <p>{{ satEN }}</p>
+            </th>
+            <th>
+              <p>{{ sunCH }}</p>
+              <p>{{ sunEN }}</p>
             </th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td>
-              <p>上午</p>
-              <p>09:00-12:00</p>
+              <p>{{ morning }}</p>
+              <p>{{ morningTime }}</p>
             </td>
             <td>
               <p>1</p>
@@ -79,8 +127,8 @@ const ophthalmology = reactive({
           </tr>
           <tr>
             <td>
-              <p>下午</p>
-              <p>13:00-16:00</p>
+              <p>{{ afternoon }}</p>
+              <p>{{ afternoonTime }}</p>
             </td>
             <td>
               <p>1</p>
@@ -106,8 +154,8 @@ const ophthalmology = reactive({
           </tr>
           <tr>
             <td>
-              <p>晚上</p>
-              <p>18:30-21:30</p>
+              <p>{{ evening }}</p>
+              <p>{{ eveningTime }}</p>
             </td>
             <td>
               <p>1</p>
@@ -149,6 +197,8 @@ const ophthalmology = reactive({
   .scheduleOphthalmology-title {
     display: flex;
     align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
 
     p:first-child {
       background: $green-1;
@@ -157,6 +207,28 @@ const ophthalmology = reactive({
       letter-spacing: 0.11rem;
       color: $white-3;
       padding: 1.5rem 3.5rem;
+    }
+
+    p:last-child {
+      font-size: 1.6rem;
+      font-weight: 500;
+      color: $black-1;
+    }
+  }
+
+  table {
+    border-collapse: collapse;
+
+    th,
+    td {
+      border: 1px solid #e6e6e6;
+      text-align: center;
+      vertical-align: middle;
+    }
+
+    thead {
+      background: $white-3;
+      color: $black-7;
     }
   }
 }
