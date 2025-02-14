@@ -87,10 +87,10 @@ main {
   .title {
     display: flex;
     justify-content: center;
-    padding-top: 18rem;
+    padding-top: 24rem;
     position: relative;
     @media (max-width: 992px) {
-      padding-top: 12rem;
+      padding-top: 18rem;
     }
 
     .title-H {
@@ -129,7 +129,7 @@ main {
         width: 15rem;
         margin-top: 0;
         position: absolute;
-        top: 28%;
+        top: 45%;
         left: 48%;
       }
     }
