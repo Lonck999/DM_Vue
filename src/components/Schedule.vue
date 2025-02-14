@@ -27,6 +27,7 @@ const { title, note } = toRefs(schedule)
 
   .schedule-title {
     text-align: center;
+    margin-bottom: 5.5rem;
 
     h2 {
       margin-bottom: 1.5rem;
