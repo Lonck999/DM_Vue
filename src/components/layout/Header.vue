@@ -77,7 +77,7 @@ window.addEventListener('resize', () => {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: -5.4rem;
+  margin-bottom: -6rem;
 
   a {
     width: min(19%, 22.5rem);
