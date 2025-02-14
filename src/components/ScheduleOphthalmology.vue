@@ -51,6 +51,12 @@ const {
   evening,
   eveningTime,
 } = toRefs(schedule)
+const doctor = reactive({
+  wang: '王司宏',
+  xu: '徐郁芳',
+  huang: '黃瑞冰',
+})
+const { wang, xu, huang } = toRefs(doctor)
 </script>
 <template>
   <div class="scheduleOphthalmology">
@@ -104,25 +110,25 @@ const {
               <p>{{ morningTime }}</p>
             </td>
             <td>
-              <p>1</p>
+              <p>{{ wang }}</p>
             </td>
             <td>
-              <p>1</p>
+              <p>{{ wang }}</p>
             </td>
             <td>
-              <p>1</p>
+              <p>{{ wang }}</p>
             </td>
             <td>
-              <p>1</p>
+              <p>{{ xu }}</p>
             </td>
             <td>
-              <p>1</p>
+              <p>{{ huang }}</p>
             </td>
             <td>
-              <p>1</p>
+              <p>{{ wang }}</p>
             </td>
             <td>
-              <p>1</p>
+              <p></p>
             </td>
           </tr>
           <tr>
@@ -131,25 +137,25 @@ const {
               <p>{{ afternoonTime }}</p>
             </td>
             <td>
-              <p>1</p>
+              <p>{{ xu }}</p>
             </td>
             <td>
-              <p>1</p>
+              <p>{{ huang }}</p>
             </td>
             <td>
-              <p>1</p>
+              <p>{{ wang }}</p>
             </td>
             <td>
-              <p>1</p>
+              <p></p>
             </td>
             <td>
-              <p>1</p>
+              <p>{{ wang }}</p>
             </td>
             <td>
-              <p>1</p>
+              <p></p>
             </td>
             <td>
-              <p>1</p>
+              <p></p>
             </td>
           </tr>
           <tr>
@@ -158,25 +164,25 @@ const {
               <p>{{ eveningTime }}</p>
             </td>
             <td>
-              <p>1</p>
+              <p></p>
             </td>
             <td>
-              <p>1</p>
+              <p></p>
             </td>
             <td>
-              <p>1</p>
+              <p></p>
             </td>
             <td>
-              <p>1</p>
+              <p>{{ wang }}</p>
             </td>
             <td>
-              <p>1</p>
+              <p></p>
             </td>
             <td>
-              <p>1</p>
+              <p></p>
             </td>
             <td>
-              <p>1</p>
+              <p></p>
             </td>
           </tr>
         </tbody>
@@ -187,7 +193,7 @@ const {
 
 <style lang="scss" scoped>
 .scheduleOphthalmology {
-  width: min(100%, 180rem);
+  width: min(calc(100% - 4rem), 180rem);
   background: rgba(255, 255, 255, 0.8);
   box-shadow: 0px 0.4rem 2rem rgba(0, 0, 0, 0.05);
   border-radius: 1rem;
@@ -201,12 +207,14 @@ const {
     margin-bottom: 2rem;
 
     p:first-child {
+      width: min(100%, 16rem);
       background: $green-1;
+      text-align: center;
       font-size: 2.2rem;
       font-weight: 700;
       letter-spacing: 0.11rem;
       color: $white-3;
-      padding: 1.5rem 3.5rem;
+      padding: 1.5rem 0;
     }
 
     p:last-child {
@@ -216,7 +224,8 @@ const {
     }
   }
 
-  table {
+  .scheduleOphthalmology-table {
+    width: 100%;
     border-collapse: collapse;
 
     th,
@@ -224,11 +233,56 @@ const {
       border: 1px solid #e6e6e6;
       text-align: center;
       vertical-align: middle;
+
+      p:first-child {
+        font-size: 1.8rem;
+        font-weight: 500;
+        color: $black-2;
+      }
+
+      p:last-child {
+        font-size: 1.4rem;
+        font-weight: 400;
+        color: $black-7;
+      }
     }
 
     thead {
       background: $white-3;
       color: $black-7;
+
+      tr {
+        th:first-child {
+          width: 35.5rem;
+          height: 5.85rem;
+
+          p:first-child {
+            font-size: 1.8rem;
+            font-weight: 400;
+            color: $black-7;
+          }
+        }
+        th:not(:first-child) {
+          width: 20rem;
+
+          p:first-child {
+            line-height: 1.4;
+          }
+        }
+      }
+    }
+
+    tbody {
+      tr {
+        td:first-child {
+          height: 7rem;
+          background: $white-3;
+
+          p:first-child {
+            line-height: 1.4;
+          }
+        }
+      }
     }
   }
 }
