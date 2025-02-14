@@ -7,7 +7,7 @@ const ophthalmology = reactive({
 })
 </script>
 <template>
-  <div class="schedule">
+  <div class="scheduleOphthalmology">
     <div>
       <p>{{ ophthalmology.title }}</p>
       <p>
