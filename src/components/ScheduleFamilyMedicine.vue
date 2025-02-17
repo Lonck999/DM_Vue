@@ -47,8 +47,10 @@ const {
   eveningTime,
 } = toRefs(schedule)
 const ophthalmology = reactive({
-  title: '眼科門診',
-  note: '視力保健、視力檢查、一般眼疾、近視雷射矯正、老花矯正、白內障超音波乳化治療、視網膜治療、飛蚊症雷射治療、青光眼治療、角膜塑型矯正等眼科手術。',
+  title: '家醫科門診',
+  note1:
+    '內科 感冒、腸胃炎、糖尿病、高血壓、高血脂、X光檢查、心電圖檢查、腹部超音波、胃鏡檢查、血液尿液檢查、骨質密度檢查、成人健康檢查。',
+  note2: '外科 一般外傷處理、換藥、擦傷、刀傷、燙傷、甲溝炎。',
 })
 const doctor = reactive({
   wang: '王司宏',
@@ -62,7 +64,7 @@ const { wang, xu, huang } = toRefs(doctor)
     <div class="scheduleOphthalmology-title">
       <p>{{ ophthalmology.title }}</p>
       <p>
-        {{ ophthalmology.note }}
+        {{ ophthalmology.note1 }}
       </p>
     </div>
     <div>
