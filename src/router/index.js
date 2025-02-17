@@ -10,11 +10,6 @@ const router = createRouter({
       redirect: '/',
       component: Home,
     },
-    {
-      path: '/reserve',
-      name: 'reserve',
-      component: () => import('@/views/Reserve.vue'),
-    },
   ],
 })
 
