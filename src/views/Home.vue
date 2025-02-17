@@ -16,7 +16,7 @@ import Schedule from '@/components/Schedule.vue'
 .home {
   width: min(100%, 192rem);
   height: 100%;
-  background: url('../assets/img/background-1.png') no-repeat center center;
+  background: url('@/assets/img/background-1.png') no-repeat center center;
   background-size: cover;
 }
 </style>
