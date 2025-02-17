@@ -1,5 +1,6 @@
 <script setup>
 import ScheduleOphthalmology from '@/components/ScheduleOphthalmology.vue'
+import ScheduleFamilyMedicine from '@/components/ScheduleFamilyMedicine.vue'
 import { reactive, toRefs } from 'vue'
 const schedule = reactive({
   title: '門診時間',
@@ -15,6 +16,7 @@ const { title, note } = toRefs(schedule)
       <p>{{ note }}</p>
     </div>
     <ScheduleOphthalmology />
+    <ScheduleFamilyMedicine />
   </section>
 </template>
 
