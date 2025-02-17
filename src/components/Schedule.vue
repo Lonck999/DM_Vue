@@ -17,8 +17,8 @@ const { title, note } = toRefs(schedule)
       <p>{{ note }}</p>
     </div>
     <ScheduleOphthalmology />
-    <ScheduleFamilyMedicine />
-    <ScheduleRehabilitationDepartment />
+    <ScheduleFamilyMedicine class="mt" />
+    <ScheduleRehabilitationDepartment class="mt" />
   </section>
 </template>
 
@@ -45,6 +45,9 @@ const { title, note } = toRefs(schedule)
       font-weight: 500;
       color: $black-2;
     }
+  }
+  .mt {
+    margin-top: 3rem;
   }
 }
 </style>
