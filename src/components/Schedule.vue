@@ -1,5 +1,5 @@
 <script setup>
-import ScheduleOphthalmology from './ScheduleOphthalmology.vue'
+import ScheduleOphthalmology from '@/components/ScheduleOphthalmology.vue'
 import { reactive, toRefs } from 'vue'
 const schedule = reactive({
   title: '門診時間',
