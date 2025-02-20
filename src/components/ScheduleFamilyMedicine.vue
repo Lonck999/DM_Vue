@@ -49,8 +49,8 @@ const {
 const ophthalmology = reactive({
   title: '家醫科門診',
   note1:
-    '內科 感冒、腸胃炎、糖尿病、高血壓、高血脂、X光檢查、心電圖檢查、腹部超音波、胃鏡檢查、血液尿液檢查、骨質密度檢查、成人健康檢查。',
-  note2: '外科 一般外傷處理、換藥、擦傷、刀傷、燙傷、甲溝炎。',
+    '內科：感冒、腸胃炎、糖尿病、高血壓、高血脂、X光檢查、心電圖檢查、腹部超音波、胃鏡檢查、血液尿液檢查、骨質密度檢查、成人健康檢查。',
+  note2: '外科：一般外傷處理、換藥、擦傷、刀傷、燙傷、甲溝炎。',
 })
 const doctor = reactive({
   wang: '王司宏',
@@ -63,9 +63,14 @@ const { wang, xu, huang } = toRefs(doctor)
   <div class="scheduleOphthalmology">
     <div class="scheduleOphthalmology-title">
       <p>{{ ophthalmology.title }}</p>
-      <p>
-        {{ ophthalmology.note1 }}
-      </p>
+      <div>
+        <p>
+          {{ ophthalmology.note1 }}
+        </p>
+        <p>
+          {{ ophthalmology.note2 }}
+        </p>
+      </div>
     </div>
     <div>
       <table class="scheduleOphthalmology-table">
@@ -249,7 +254,7 @@ const { wang, xu, huang } = toRefs(doctor)
     gap: 1.5rem;
     margin-bottom: 2rem;
 
-    p:first-child {
+    > p:first-child {
       width: min(100%, 16rem);
       background: $green-1;
       text-align: center;
@@ -259,11 +264,13 @@ const { wang, xu, huang } = toRefs(doctor)
       color: $white-3;
       padding: 1.5rem 0;
     }
-
-    p:last-child {
+    p {
       font-size: 1.6rem;
       font-weight: 500;
       color: $black-1;
+    }
+    p + p {
+      margin-top: 1rem;
     }
   }
 
