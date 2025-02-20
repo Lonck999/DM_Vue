@@ -47,8 +47,11 @@ const {
   eveningTime,
 } = toRefs(schedule)
 const ophthalmology = reactive({
-  title: '眼科門診',
-  note: '視力保健、視力檢查、一般眼疾、近視雷射矯正、老花矯正、白內障超音波乳化治療、視網膜治療、飛蚊症雷射治療、青光眼治療、角膜塑型矯正等眼科手術。',
+  title: '復健科門診',
+  note1:
+    '物理治療：冰凍肩(五十肩)、下背痛(腰痛)、坐骨神經痛、膝關節傷害、臏骨軟化症及其他膝蓋疼痛、腳踝扭傷等肌肉骨骼以及神經控制系統各種的不悅感或異常感。',
+  note2:
+    '職能治療：成人治療範圍：腦傷、中風、脊椎損傷、骨折、燒燙傷等... / 兒童治療範圍：自閉症、過動症、腦性麻痺、發展遲緩、感覺統合失調、學習障礙等...。',
 })
 const doctor = reactive({
   wang: '王司宏',
@@ -56,14 +59,36 @@ const doctor = reactive({
   huang: '黃瑞冰',
 })
 const { wang, xu, huang } = toRefs(doctor)
+const rehabilitation = reactive({
+  morning: '上午',
+  morningTime: '08:00-12:00',
+  afternoon: '下午',
+  afternoonTime: '14:00-21:00',
+  last: '復健治療最後收單時間 : ',
+  lastTime: '11:30、20:30',
+  notice: '星期六至18:00 星期日至12:00',
+})
+const occupation = reactive({
+  child: '兒童',
+  childDay: '星期一至五',
+  childTime: '13:00 - 21:00',
+  aldult: '成人',
+  aldultDay: '星期一至六',
+  aldultTime: '09:00 - 12:00',
+})
 </script>
 <template>
   <div class="scheduleOphthalmology">
     <div class="scheduleOphthalmology-title">
       <p>{{ ophthalmology.title }}</p>
-      <p>
-        {{ ophthalmology.note }}
-      </p>
+      <div>
+        <p>
+          {{ ophthalmology.note1 }}
+        </p>
+        <p>
+          {{ ophthalmology.note2 }}
+        </p>
+      </div>
     </div>
     <div>
       <table class="scheduleOphthalmology-table">
@@ -229,6 +254,9 @@ const { wang, xu, huang } = toRefs(doctor)
         </tbody>
       </table>
     </div>
+    <div>
+      <p>123</p>
+    </div>
   </div>
 </template>
 
@@ -247,7 +275,7 @@ const { wang, xu, huang } = toRefs(doctor)
     gap: 1.5rem;
     margin-bottom: 2rem;
 
-    p:first-child {
+    > p:first-child {
       width: min(100%, 16rem);
       background: $green-1;
       text-align: center;
@@ -257,11 +285,13 @@ const { wang, xu, huang } = toRefs(doctor)
       color: $white-3;
       padding: 1.5rem 0;
     }
-
-    p:last-child {
+    p {
       font-size: 1.6rem;
       font-weight: 500;
       color: $black-1;
+    }
+    p + p {
+      margin-top: 1rem;
     }
   }
 
