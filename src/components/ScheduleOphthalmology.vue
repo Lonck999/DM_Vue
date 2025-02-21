@@ -3,7 +3,7 @@ import { useTableStore } from '@/stores/table'
 import { storeToRefs } from 'pinia'
 
 const tableStore = useTableStore()
-const { schedule, ophthalmology, ophthalmologyDoctor } = storeToRefs(tableStore)
+const { schedule, ophthalmology } = storeToRefs(tableStore)
 const {
   scheduleWeek,
   scheduleMonCH,
