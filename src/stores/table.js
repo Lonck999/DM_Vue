@@ -49,12 +49,12 @@ export const useTableStore = defineStore('table', () => {
   })
   // 復健科門診
   const rehabilitation = reactive({
-    rehabilitationTitle: '復健科門診',
-    rehabilitationNote1:
+    title: '復健科門診',
+    note1:
       '物理治療：冰凍肩(五十肩)、下背痛(腰痛)、坐骨神經痛、膝關節傷害、臏骨軟化症及其他膝蓋疼痛、腳踝扭傷等肌肉骨骼以及神經控制系統各種的不悅感或異常感。',
-    rehabilitationNote2:
+    note2:
       '職能治療：成人治療範圍：腦傷、中風、脊椎損傷、骨折、燒燙傷等... / 兒童治療範圍：自閉症、過動症、腦性麻痺、發展遲緩、感覺統合失調、學習障礙等...。',
-    rehabilitationDoctor: '林嘉勇',
+    doctor: '林嘉勇',
     rehabilitationTimeTitle: '復健治療時間',
     rehabilitationMorning: '上午',
     rehabilitationMorningTime: '08:00-12:00',
