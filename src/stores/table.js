@@ -26,10 +26,16 @@ export const useTableStore = defineStore('table', () => {
     scheduleEvening: '晚上',
     scheduleEveningTime: '18:30-21:30',
   })
-
+  // 眼科門診
   const ophthalmology = reactive({
     title: '眼科門診',
     note: '視力保健、視力檢查、一般眼疾、近視雷射矯正、老花矯正、白內障超音波乳化治療、視網膜治療、飛蚊症雷射治療、青光眼治療、角膜塑型矯正等眼科手術。',
+  })
+  // 眼科醫師
+  const ophthalmologyDoctor = reactive({
+    wang: '王司宏',
+    xu: '徐郁芳',
+    huang: '黃瑞冰',
   })
   // 復健科門診
   const rehabilitation = reactive({
@@ -65,6 +71,7 @@ export const useTableStore = defineStore('table', () => {
   return {
     schedule,
     ophthalmology,
+    ophthalmologyDoctor,
     rehabilitation,
     rehabilitationDoctor,
     rehabilitationTime,

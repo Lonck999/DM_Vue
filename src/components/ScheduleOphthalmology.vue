@@ -1,10 +1,9 @@
 <script setup>
 import { useTableStore } from '@/stores/table'
 import { storeToRefs } from 'pinia'
-import { reactive, toRefs } from 'vue'
 
 const tableStore = useTableStore()
-const { schedule, ophthalmology } = storeToRefs(tableStore)
+const { schedule, ophthalmology, ophthalmologyDoctor } = storeToRefs(tableStore)
 const {
   scheduleWeek,
   scheduleMonCH,
@@ -29,12 +28,7 @@ const {
   scheduleEveningTime,
 } = schedule.value
 const { ophthalmologyTitle, ophthalmologyNote } = ophthalmology.value
-const doctor = reactive({
-  wang: '王司宏',
-  xu: '徐郁芳',
-  huang: '黃瑞冰',
-})
-const { wang, xu, huang } = toRefs(doctor)
+const { wang, xu, huang } = ophthalmologyDoctor.value
 </script>
 <template>
   <div class="scheduleOphthalmology">
