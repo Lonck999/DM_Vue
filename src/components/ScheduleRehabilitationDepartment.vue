@@ -3,8 +3,7 @@ import { useTableStore } from '@/stores/table'
 import { storeToRefs } from 'pinia'
 
 const tableStore = useTableStore()
-const { schedule, rehabilitation, rehabilitationDoctor, rehabilitationTime, occupationTime } =
-  storeToRefs(tableStore)
+const { schedule, rehabilitation } = storeToRefs(tableStore)
 const {
   scheduleWeek,
   scheduleMonCH,
@@ -28,9 +27,14 @@ const {
   scheduleEvening,
   scheduleEveningTime,
 } = schedule.value
-const { rehabilitationTitle, rehabilitationNote1, rehabilitationNote2 } = rehabilitation.value
-const { rehabilitationTimeTitle } = rehabilitationTime.value
-const { occupationTimeTitle } = occupationTime.value
+const {
+  rehabilitationTitle,
+  rehabilitationNote1,
+  rehabilitationNote2,
+  rehabilitationDoctor,
+  rehabilitationTimeTitle,
+  occupationTimeTitle,
+} = rehabilitation.value
 </script>
 <template>
   <div class="scheduleOphthalmology">
