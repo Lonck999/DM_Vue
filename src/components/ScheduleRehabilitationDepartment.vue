@@ -3,7 +3,7 @@ import { useTableStore } from '@/stores/table'
 import { storeToRefs } from 'pinia'
 
 const tableStore = useTableStore()
-const { schedule, ophthalmology, ophthalmologyDoctor, rehabilitation, occupation } =
+const { schedule, rehabilitation, rehabilitationDoctor, rehabilitationTime, occupationTime } =
   storeToRefs(tableStore)
 const {
   scheduleWeek,
@@ -28,23 +28,20 @@ const {
   scheduleEvening,
   scheduleEveningTime,
 } = schedule.value
-
-const { ophthalmologyTitle, ophthalmologyNote1, ophthalmologyNote2 } = ophthalmology.value
-
-const { rehabilitationTitle } = rehabilitation.value
-
-const { occupationTitle } = occupation.value
+const { rehabilitationTitle, rehabilitationNote1, rehabilitationNote2 } = rehabilitation.value
+const { rehabilitationTimeTitle } = rehabilitationTime.value
+const { occupationTimeTitle } = occupationTime.value
 </script>
 <template>
   <div class="scheduleOphthalmology">
     <div class="scheduleOphthalmology-title">
-      <p>{{ ophthalmologyTitle }}</p>
+      <p>{{ rehabilitationTitle }}</p>
       <div>
         <p>
-          {{ ophthalmologyNote1 }}
+          {{ rehabilitationNote1 }}
         </p>
         <p>
-          {{ ophthalmologyNote2 }}
+          {{ rehabilitationNote2 }}
         </p>
       </div>
     </div>
@@ -93,32 +90,32 @@ const { occupationTitle } = occupation.value
             </td>
             <td>
               <a href="/">
-                <p>{{ ophthalmologyDoctor }}</p>
+                <p>{{ rehabilitationDoctor }}</p>
               </a>
             </td>
             <td>
               <a href="/">
-                <p>{{ ophthalmologyDoctor }}</p>
+                <p>{{ rehabilitationDoctor }}</p>
               </a>
             </td>
             <td>
               <a href="/">
-                <p>{{ ophthalmologyDoctor }}</p>
+                <p>{{ rehabilitationDoctor }}</p>
               </a>
             </td>
             <td>
               <a href="/">
-                <p>{{ ophthalmologyDoctor }}</p>
+                <p>{{ rehabilitationDoctor }}</p>
               </a>
             </td>
             <td>
               <a href="/">
-                <p>{{ ophthalmologyDoctor }}</p>
+                <p>{{ rehabilitationDoctor }}</p>
               </a>
             </td>
             <td>
               <a href="/">
-                <p>{{ ophthalmologyDoctor }}</p>
+                <p>{{ rehabilitationDoctor }}</p>
               </a>
             </td>
             <td>
@@ -134,17 +131,17 @@ const { occupationTitle } = occupation.value
             </td>
             <td>
               <a href="/">
-                <p>{{ ophthalmologyDoctor }}</p>
+                <p>{{ rehabilitationDoctor }}</p>
               </a>
             </td>
             <td>
               <a href="/">
-                <p>{{ ophthalmologyDoctor }}</p>
+                <p>{{ rehabilitationDoctor }}</p>
               </a>
             </td>
             <td>
               <a href="/">
-                <p>{{ ophthalmologyDoctor }}</p>
+                <p>{{ rehabilitationDoctor }}</p>
               </a>
             </td>
             <td>
@@ -154,7 +151,7 @@ const { occupationTitle } = occupation.value
             </td>
             <td>
               <a href="/">
-                <p>{{ ophthalmologyDoctor }}</p>
+                <p>{{ rehabilitationDoctor }}</p>
               </a>
             </td>
             <td>
@@ -190,7 +187,7 @@ const { occupationTitle } = occupation.value
             </td>
             <td>
               <a href="/">
-                <p>{{ ophthalmologyDoctor }}</p>
+                <p>{{ rehabilitationDoctor }}</p>
               </a>
             </td>
             <td>
@@ -214,10 +211,10 @@ const { occupationTitle } = occupation.value
     </div>
     <div>
       <div>
-        <p>{{ rehabilitationTitle }}</p>
+        <p>{{ rehabilitationTimeTitle }}</p>
       </div>
       <div>
-        <p>{{ occupationTitle }}</p>
+        <p>{{ occupationTimeTitle }}</p>
       </div>
     </div>
   </div>

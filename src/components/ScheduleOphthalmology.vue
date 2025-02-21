@@ -1,55 +1,34 @@
 <script setup>
+import { useTableStore } from '@/stores/table'
+import { storeToRefs } from 'pinia'
 import { reactive, toRefs } from 'vue'
-const schedule = reactive({
-  week: '門診時間/星期',
-  monCH: '星期一',
-  monEN: 'MON',
-  tueCH: '星期二',
-  tueEN: 'TUE',
-  wedCH: '星期三',
-  wedEN: 'WED',
-  thuCH: '星期四',
-  thuEN: 'THU',
-  friCH: '星期五',
-  friEN: 'FRI',
-  satCH: '星期六',
-  satEN: 'SAT',
-  sunCH: '星期日',
-  sunEN: 'SUN',
-  morning: '上午',
-  morningTime: '09:00-12:00',
-  afternoon: '下午',
-  afternoonTime: '13:00-16:00',
-  evening: '晚上',
-  eveningTime: '18:30-21:30',
-})
+
+const tableStore = useTableStore()
+const { schedule, ophthalmology } = storeToRefs(tableStore)
 const {
-  week,
-  monCH,
-  monEN,
-  tueCH,
-  tueEN,
-  wedCH,
-  wedEN,
-  thuCH,
-  thuEN,
-  friCH,
-  friEN,
-  satCH,
-  satEN,
-  sunCH,
-  sunEN,
-  morning,
-  morningTime,
-  afternoon,
-  afternoonTime,
-  evening,
-  eveningTime,
-} = toRefs(schedule)
-const ophthalmology = reactive({
-  title: '眼科門診',
-  note: '視力保健、視力檢查、一般眼疾、近視雷射矯正、老花矯正、白內障超音波乳化治療、視網膜治療、飛蚊症雷射治療、青光眼治療、角膜塑型矯正等眼科手術。',
-})
+  scheduleWeek,
+  scheduleMonCH,
+  scheduleMonEN,
+  scheduleTueCH,
+  scheduleTueEN,
+  scheduleWedCH,
+  scheduleWedEN,
+  scheduleThuCH,
+  scheduleThuEN,
+  scheduleFriCH,
+  scheduleFriEN,
+  scheduleSatCH,
+  scheduleSatEN,
+  scheduleSunCH,
+  scheduleSunEN,
+  scheduleMorning,
+  scheduleMorningTime,
+  scheduleAfternoon,
+  scheduleAfternoonTime,
+  scheduleEvening,
+  scheduleEveningTime,
+} = schedule.value
+const { ophthalmologyTitle, ophthalmologyNote } = ophthalmology.value
 const doctor = reactive({
   wang: '王司宏',
   xu: '徐郁芳',
@@ -60,9 +39,9 @@ const { wang, xu, huang } = toRefs(doctor)
 <template>
   <div class="scheduleOphthalmology">
     <div class="scheduleOphthalmology-title">
-      <p>{{ ophthalmology.title }}</p>
+      <p>{{ ophthalmologyTitle }}</p>
       <p>
-        {{ ophthalmology.note }}
+        {{ ophthalmologyNote }}
       </p>
     </div>
     <div>
@@ -70,43 +49,43 @@ const { wang, xu, huang } = toRefs(doctor)
         <thead>
           <tr>
             <th>
-              <p>{{ week }}</p>
+              <p>{{ scheduleWeek }}</p>
             </th>
             <th>
-              <p>{{ monCH }}</p>
-              <p>{{ monEN }}</p>
+              <p>{{ scheduleMonCH }}</p>
+              <p>{{ scheduleMonEN }}</p>
             </th>
             <th>
-              <p>{{ tueCH }}</p>
-              <p>{{ tueEN }}</p>
+              <p>{{ scheduleTueCH }}</p>
+              <p>{{ scheduleTueEN }}</p>
             </th>
             <th>
-              <p>{{ wedCH }}</p>
-              <p>{{ wedEN }}</p>
+              <p>{{ scheduleWedCH }}</p>
+              <p>{{ scheduleWedEN }}</p>
             </th>
             <th>
-              <p>{{ thuCH }}</p>
-              <p>{{ thuEN }}</p>
+              <p>{{ scheduleThuCH }}</p>
+              <p>{{ scheduleThuEN }}</p>
             </th>
             <th>
-              <p>{{ friCH }}</p>
-              <p>{{ friEN }}</p>
+              <p>{{ scheduleFriCH }}</p>
+              <p>{{ scheduleFriEN }}</p>
             </th>
             <th>
-              <p>{{ satCH }}</p>
-              <p>{{ satEN }}</p>
+              <p>{{ scheduleSatCH }}</p>
+              <p>{{ scheduleSatEN }}</p>
             </th>
             <th>
-              <p>{{ sunCH }}</p>
-              <p>{{ sunEN }}</p>
+              <p>{{ scheduleSunCH }}</p>
+              <p>{{ scheduleSunEN }}</p>
             </th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td>
-              <p>{{ morning }}</p>
-              <p>{{ morningTime }}</p>
+              <p>{{ scheduleMorning }}</p>
+              <p>{{ scheduleMorningTime }}</p>
             </td>
             <td>
               <a href="/">
@@ -146,8 +125,8 @@ const { wang, xu, huang } = toRefs(doctor)
           </tr>
           <tr>
             <td>
-              <p>{{ afternoon }}</p>
-              <p>{{ afternoonTime }}</p>
+              <p>{{ scheduleAfternoon }}</p>
+              <p>{{ scheduleAfternoonTime }}</p>
             </td>
             <td>
               <a href="/">
@@ -187,8 +166,8 @@ const { wang, xu, huang } = toRefs(doctor)
           </tr>
           <tr>
             <td>
-              <p>{{ evening }}</p>
-              <p>{{ eveningTime }}</p>
+              <p>{{ scheduleEvening }}</p>
+              <p>{{ scheduleEveningTime }}</p>
             </td>
             <td>
               <a href="/">
