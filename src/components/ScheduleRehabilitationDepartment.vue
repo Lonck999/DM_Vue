@@ -1,6 +1,7 @@
 <script setup>
 import { useTableStore } from '@/stores/table'
 import { storeToRefs } from 'pinia'
+import redNotice from '@/assets/img/red-notice.png'
 const tableStore = useTableStore()
 const { schedule, rehabilitation } = storeToRefs(tableStore)
 const {
@@ -221,18 +222,28 @@ const {
     </div>
     <div class="details">
       <div class="details-rehabilitation">
-        <p class="details-rehabilitation-title">{{ rehabilitationTimeTitle }}</p>
-        <p>
-          {{ rehabilitationMorning }}<span>{{ rehabilitationMorningTime }}</span>
+        <p class="details-rehabilitation-title">
+          {{ rehabilitationTimeTitle }}
         </p>
-        <p>
-          {{ rehabilitationAfternoon }}<span>{{ rehabilitationAfternoonTime }}</span>
+        <p class="details-rehabilitation-time">
+          {{ rehabilitationMorning }}
+          <span>{{ rehabilitationMorningTime }}</span>
         </p>
-        <div>
+        <p class="details-rehabilitation-time">
+          {{ rehabilitationAfternoon }}
+          <span>{{ rehabilitationAfternoonTime }}</span>
+        </p>
+        <div class="details-rehabilitation-last">
           <p>
-            {{ rehabilitationLast }}<span>{{ rehabilitationLastTime }}</span>
+            {{ rehabilitationLast }}
+            <span>
+              {{ rehabilitationLastTime }}
+            </span>
           </p>
-          <p>{{ rehabilitationNotice }}</p>
+          <p>
+            <img :src="redNotice" alt="red-notice" />
+            {{ rehabilitationNotice }}
+          </p>
         </div>
       </div>
       <div class="details-occupation">
@@ -362,6 +373,40 @@ const {
       font-size: 2rem;
       font-weight: 700;
       color: $green-1;
+      border-left: 0.5rem solid $green-1;
+      padding: 1.5rem 1rem 1.5rem 0.5rem;
+    }
+
+    &-time {
+      background: $white-3;
+      padding: 1.6rem 1rem;
+      font-size: 1.8rem;
+      font-weight: 500;
+      color: $black-2;
+
+      &:nth-child(3) {
+        border-left: 0.1rem solid $white-4;
+      }
+
+      span {
+        color: $green-1;
+      }
+    }
+
+    &-last {
+      padding: 1.6rem 1rem;
+      font-size: 1.6rem;
+      font-weight: 400;
+      line-height: 1.4;
+      color: $black-2;
+
+      p:last-child {
+        color: $red-1;
+
+        img {
+          width: min(6%, 1.4rem);
+        }
+      }
     }
   }
 }
