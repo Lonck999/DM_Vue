@@ -4,7 +4,31 @@ import { storeToRefs } from 'pinia'
 import { reactive, toRefs } from 'vue'
 
 const tableStore = useTableStore()
-const { scheduleWeek } = storeToRefs(tableStore.schedule)
+const { schedule } = storeToRefs(tableStore)
+const {
+  scheduleWeek,
+  scheduleMonCH,
+  scheduleMonEN,
+  scheduleTueCH,
+  scheduleTueEN,
+  scheduleWedCH,
+  scheduleWedEN,
+  scheduleThuCH,
+  scheduleThuEN,
+  scheduleFriCH,
+  scheduleFriEN,
+  scheduleSatCH,
+  scheduleSatEN,
+  scheduleSunCH,
+  scheduleSunEN,
+  scheduleMorning,
+  scheduleMorningTime,
+  scheduleAfternoon,
+  scheduleAfternoonTime,
+  scheduleEvening,
+  scheduleEveningTime,
+} = schedule.value
+
 const ophthalmology = reactive({
   ophthalmologyTitle: '復健科門診',
   ophthalmologyNote1:
