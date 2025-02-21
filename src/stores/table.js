@@ -4,35 +4,42 @@ import { reactive } from 'vue'
 export const useTableStore = defineStore('table', () => {
   // 班表表格
   const schedule = reactive({
-    scheduleWeek: '門診時間/星期',
-    scheduleMonCH: '星期一',
-    scheduleMonEN: 'MON',
-    scheduleTueCH: '星期二',
-    scheduleTueEN: 'TUE',
-    scheduleWedCH: '星期三',
-    scheduleWedEN: 'WED',
-    scheduleThuCH: '星期四',
-    scheduleThuEN: 'THU',
-    scheduleFriCH: '星期五',
-    scheduleFriEN: 'FRI',
-    scheduleSatCH: '星期六',
-    scheduleSatEN: 'SAT',
-    scheduleSunCH: '星期日',
-    scheduleSunEN: 'SUN',
-    scheduleMorning: '上午',
-    scheduleMorningTime: '09:00-12:00',
-    scheduleAfternoon: '下午',
-    scheduleAfternoonTime: '13:00-16:00',
-    scheduleEvening: '晚上',
-    scheduleEveningTime: '18:30-21:30',
+    week: '門診時間/星期',
+    monCH: '星期一',
+    monEN: 'MON',
+    tueCH: '星期二',
+    tueEN: 'TUE',
+    wedCH: '星期三',
+    wedEN: 'WED',
+    thuCH: '星期四',
+    thuEN: 'THU',
+    friCH: '星期五',
+    friEN: 'FRI',
+    satCH: '星期六',
+    satEN: 'SAT',
+    sunCH: '星期日',
+    sunEN: 'SUN',
+    morning: '上午',
+    morningTime: '09:00-12:00',
+    afternoon: '下午',
+    afternoonTime: '13:00-16:00',
+    evening: '晚上',
+    eveningTime: '18:30-21:30',
   })
   // 眼科門診
   const ophthalmology = reactive({
     title: '眼科門診',
     note: '視力保健、視力檢查、一般眼疾、近視雷射矯正、老花矯正、白內障超音波乳化治療、視網膜治療、飛蚊症雷射治療、青光眼治療、角膜塑型矯正等眼科手術。',
-    ophthalmologyDoctorWang: '王司宏',
-    ophthalmologyDoctorXu: '徐郁芳',
-    ophthalmologyDoctorHuang: '黃瑞冰',
+    doctorWang: '王司宏',
+    doctorXu: '徐郁芳',
+    doctorHuang: '黃瑞冰',
+  })
+  // 家醫科門診
+  const familyMedicine = reactive({
+    title: '家醫科門診',
+    note1:
+      '內科：感冒、腸胃炎、糖尿病、高血壓、高血脂、X光檢查、心電圖檢查、腹部超音波、胃鏡檢查、血液尿液檢查、骨質密度檢查、成人健康檢查。',
+    note2: '外科：一般外傷處理、換藥、擦傷、刀傷、燙傷、甲溝炎。',
   })
   // 復健科門診
   const rehabilitation = reactive({
@@ -61,6 +68,7 @@ export const useTableStore = defineStore('table', () => {
   return {
     schedule,
     ophthalmology,
+    familyMedicine,
     rehabilitation,
   }
 })
