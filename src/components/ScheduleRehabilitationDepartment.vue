@@ -219,9 +219,9 @@ const {
         </tbody>
       </table>
     </div>
-    <div>
-      <div>
-        <p>{{ rehabilitationTimeTitle }}</p>
+    <div class="details">
+      <div class="details-rehabilitation">
+        <p class="details-rehabilitation-title">{{ rehabilitationTimeTitle }}</p>
         <p>
           {{ rehabilitationMorning }}<span>{{ rehabilitationMorningTime }}</span>
         </p>
@@ -235,7 +235,7 @@ const {
           <p>{{ rehabilitationNotice }}</p>
         </div>
       </div>
-      <div>
+      <div class="details-occupation">
         <p>{{ occupationTimeTitle }}</p>
       </div>
     </div>
@@ -348,6 +348,20 @@ const {
           }
         }
       }
+    }
+  }
+}
+.details {
+  margin-top: 1rem;
+
+  .details-rehabilitation {
+    display: flex;
+    align-items: center;
+
+    &-title {
+      font-size: 2rem;
+      font-weight: 700;
+      color: $green-1;
     }
   }
 }
