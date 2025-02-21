@@ -5,47 +5,41 @@ import { storeToRefs } from 'pinia'
 const tableStore = useTableStore()
 const { schedule, rehabilitation } = storeToRefs(tableStore)
 const {
-  scheduleWeek,
-  scheduleMonCH,
-  scheduleMonEN,
-  scheduleTueCH,
-  scheduleTueEN,
-  scheduleWedCH,
-  scheduleWedEN,
-  scheduleThuCH,
-  scheduleThuEN,
-  scheduleFriCH,
-  scheduleFriEN,
-  scheduleSatCH,
-  scheduleSatEN,
-  scheduleSunCH,
-  scheduleSunEN,
-  scheduleMorning,
-  scheduleMorningTime,
-  scheduleAfternoon,
-  scheduleAfternoonTime,
-  scheduleEvening,
-  scheduleEveningTime,
+  week,
+  monCH,
+  monEN,
+  tueCH,
+  tueEN,
+  wedCH,
+  wedEN,
+  thuCH,
+  thuEN,
+  friCH,
+  friEN,
+  satCH,
+  satEN,
+  sunCH,
+  sunEN,
+  morning,
+  morningTime,
+  afternoon,
+  afternoonTime,
+  evening,
+  eveningTime,
 } = schedule.value
-const {
-  rehabilitationTitle,
-  rehabilitationNote1,
-  rehabilitationNote2,
-  rehabilitationDoctor,
-  rehabilitationTimeTitle,
-  occupationTimeTitle,
-} = rehabilitation.value
+const { title, note1, note2, doctor, rehabilitationTimeTitle, occupationTimeTitle } =
+  rehabilitation.value
 </script>
 <template>
   <div class="scheduleOphthalmology">
     <div class="scheduleOphthalmology-title">
-      <p>{{ rehabilitationTitle }}</p>
+      <p>{{ title }}</p>
       <div>
         <p>
-          {{ rehabilitationNote1 }}
+          {{ note1 }}
         </p>
         <p>
-          {{ rehabilitationNote2 }}
+          {{ note2 }}
         </p>
       </div>
     </div>
@@ -54,113 +48,72 @@ const {
         <thead>
           <tr>
             <th>
-              <p>{{ scheduleWeek }}</p>
+              <p>{{ week }}</p>
             </th>
             <th>
-              <p>{{ scheduleMonCH }}</p>
-              <p>{{ scheduleMonEN }}</p>
+              <p>{{ monCH }}</p>
+              <p>{{ monEN }}</p>
             </th>
             <th>
-              <p>{{ scheduleTueCH }}</p>
-              <p>{{ scheduleTueEN }}</p>
+              <p>{{ tueCH }}</p>
+              <p>{{ tueEN }}</p>
             </th>
             <th>
-              <p>{{ scheduleWedCH }}</p>
-              <p>{{ scheduleWedEN }}</p>
+              <p>{{ wedCH }}</p>
+              <p>{{ wedEN }}</p>
             </th>
             <th>
-              <p>{{ scheduleThuCH }}</p>
-              <p>{{ scheduleThuEN }}</p>
+              <p>{{ thuCH }}</p>
+              <p>{{ thuEN }}</p>
             </th>
             <th>
-              <p>{{ scheduleFriCH }}</p>
-              <p>{{ scheduleFriEN }}</p>
+              <p>{{ friCH }}</p>
+              <p>{{ friEN }}</p>
             </th>
             <th>
-              <p>{{ scheduleSatCH }}</p>
-              <p>{{ scheduleSatEN }}</p>
+              <p>{{ satCH }}</p>
+              <p>{{ satEN }}</p>
             </th>
             <th>
-              <p>{{ scheduleSunCH }}</p>
-              <p>{{ scheduleSunEN }}</p>
+              <p>{{ sunCH }}</p>
+              <p>{{ sunEN }}</p>
             </th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td>
-              <p>{{ scheduleMorning }}</p>
-              <p>{{ scheduleMorningTime }}</p>
+              <p>{{ morning }}</p>
+              <p>{{ morningTime }}</p>
             </td>
             <td>
               <a href="/">
-                <p>{{ rehabilitationDoctor }}</p>
+                <p>{{ doctor }}</p>
               </a>
             </td>
             <td>
               <a href="/">
-                <p>{{ rehabilitationDoctor }}</p>
+                <p>{{ doctor }}</p>
               </a>
             </td>
             <td>
               <a href="/">
-                <p>{{ rehabilitationDoctor }}</p>
+                <p>{{ doctor }}</p>
               </a>
             </td>
             <td>
               <a href="/">
-                <p>{{ rehabilitationDoctor }}</p>
+                <p>{{ doctor }}</p>
               </a>
             </td>
             <td>
               <a href="/">
-                <p>{{ rehabilitationDoctor }}</p>
+                <p>{{ doctor }}</p>
               </a>
             </td>
             <td>
               <a href="/">
-                <p>{{ rehabilitationDoctor }}</p>
-              </a>
-            </td>
-            <td>
-              <a href="/">
-                <p></p>
-              </a>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <p>{{ scheduleAfternoon }}</p>
-              <p>{{ scheduleAfternoonTime }}</p>
-            </td>
-            <td>
-              <a href="/">
-                <p>{{ rehabilitationDoctor }}</p>
-              </a>
-            </td>
-            <td>
-              <a href="/">
-                <p>{{ rehabilitationDoctor }}</p>
-              </a>
-            </td>
-            <td>
-              <a href="/">
-                <p>{{ rehabilitationDoctor }}</p>
-              </a>
-            </td>
-            <td>
-              <a href="/">
-                <p></p>
-              </a>
-            </td>
-            <td>
-              <a href="/">
-                <p>{{ rehabilitationDoctor }}</p>
-              </a>
-            </td>
-            <td>
-              <a href="/">
-                <p></p>
+                <p>{{ doctor }}</p>
               </a>
             </td>
             <td>
@@ -171,8 +124,49 @@ const {
           </tr>
           <tr>
             <td>
-              <p>{{ scheduleEvening }}</p>
-              <p>{{ scheduleEveningTime }}</p>
+              <p>{{ afternoon }}</p>
+              <p>{{ afternoonTime }}</p>
+            </td>
+            <td>
+              <a href="/">
+                <p>{{ doctor }}</p>
+              </a>
+            </td>
+            <td>
+              <a href="/">
+                <p>{{ doctor }}</p>
+              </a>
+            </td>
+            <td>
+              <a href="/">
+                <p>{{ doctor }}</p>
+              </a>
+            </td>
+            <td>
+              <a href="/">
+                <p></p>
+              </a>
+            </td>
+            <td>
+              <a href="/">
+                <p>{{ doctor }}</p>
+              </a>
+            </td>
+            <td>
+              <a href="/">
+                <p></p>
+              </a>
+            </td>
+            <td>
+              <a href="/">
+                <p></p>
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>{{ evening }}</p>
+              <p>{{ eveningTime }}</p>
             </td>
             <td>
               <a href="/">
@@ -191,7 +185,7 @@ const {
             </td>
             <td>
               <a href="/">
-                <p>{{ rehabilitationDoctor }}</p>
+                <p>{{ doctor }}</p>
               </a>
             </td>
             <td>
