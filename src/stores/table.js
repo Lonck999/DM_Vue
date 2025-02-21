@@ -40,6 +40,12 @@ export const useTableStore = defineStore('table', () => {
     note1:
       '內科：感冒、腸胃炎、糖尿病、高血壓、高血脂、X光檢查、心電圖檢查、腹部超音波、胃鏡檢查、血液尿液檢查、骨質密度檢查、成人健康檢查。',
     note2: '外科：一般外傷處理、換藥、擦傷、刀傷、燙傷、甲溝炎。',
+    doctorTsai: '蔡政達',
+    doctorChang: '張淑境',
+    doctorLin: '林昌錦',
+    doctorShi: '史幸仙',
+    doctorChu: '邱旭祥',
+    doctorLee: '李明智',
   })
   // 復健科門診
   const rehabilitation = reactive({
