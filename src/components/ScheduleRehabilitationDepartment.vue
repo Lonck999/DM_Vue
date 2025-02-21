@@ -259,14 +259,14 @@ const {
         <p class="details-occupation-identity">
           {{ occupationChild }}
         </p>
-        <p>
+        <p class="details-occupation-time">
           {{ occupationChildDay }}
           <span>{{ occupationChildTime }}</span>
         </p>
         <p class="details-occupation-identity">
           {{ occupationAldult }}
         </p>
-        <p>
+        <p class="details-occupation-time">
           {{ occupationAldultDay }}
           <span>{{ occupationAldultTime }}</span>
         </p>
@@ -449,6 +449,16 @@ const {
       font-weight: 500;
       color: $green-1;
       padding: 1.5rem 2.2rem;
+    }
+
+    &-time {
+      background: $white-3;
+      padding: 1.7rem 1rem;
+      font-size: 1.6rem;
+
+      span {
+        color: $green-1;
+      }
     }
   }
 }
