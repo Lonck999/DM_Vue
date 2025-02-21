@@ -1,7 +1,6 @@
 <script setup>
 import { useTableStore } from '@/stores/table'
 import { storeToRefs } from 'pinia'
-
 const tableStore = useTableStore()
 const { schedule, rehabilitation } = storeToRefs(tableStore)
 const {
@@ -27,8 +26,21 @@ const {
   evening,
   eveningTime,
 } = schedule.value
-const { title, note1, note2, doctor, rehabilitationTimeTitle, occupationTimeTitle } =
-  rehabilitation.value
+const {
+  title,
+  note1,
+  note2,
+  doctor,
+  rehabilitationTimeTitle,
+  rehabilitationMorning,
+  rehabilitationMorningTime,
+  rehabilitationAfternoon,
+  rehabilitationAfternoonTime,
+  rehabilitationLast,
+  rehabilitationLastTime,
+  rehabilitationNotice,
+  occupationTimeTitle,
+} = rehabilitation.value
 </script>
 <template>
   <div class="scheduleOphthalmology">
@@ -210,6 +222,18 @@ const { title, note1, note2, doctor, rehabilitationTimeTitle, occupationTimeTitl
     <div>
       <div>
         <p>{{ rehabilitationTimeTitle }}</p>
+        <p>
+          {{ rehabilitationMorning }}<span>{{ rehabilitationMorningTime }}</span>
+        </p>
+        <p>
+          {{ rehabilitationAfternoon }}<span>{{ rehabilitationAfternoonTime }}</span>
+        </p>
+        <div>
+          <p>
+            {{ rehabilitationLast }}<span>{{ rehabilitationLastTime }}</span>
+          </p>
+          <p>{{ rehabilitationNotice }}</p>
+        </div>
       </div>
       <div>
         <p>{{ occupationTimeTitle }}</p>
