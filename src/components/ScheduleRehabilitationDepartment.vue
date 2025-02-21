@@ -41,6 +41,12 @@ const {
   rehabilitationLastTime,
   rehabilitationNotice,
   occupationTimeTitle,
+  occupationChild,
+  occupationChildDay,
+  occupationChildTime,
+  occupationAldult,
+  occupationAldultDay,
+  occupationAldultTime,
 } = rehabilitation.value
 </script>
 <template>
@@ -248,6 +254,18 @@ const {
       </div>
       <div class="details-occupation">
         <p>{{ occupationTimeTitle }}</p>
+        <p>{{ occupationChild }}</p>
+        <p>
+          {{ occupationChildDay }}
+          <span>{{ occupationChildTime }}</span>
+        </p>
+        <p>
+          {{ occupationAldult }}
+        </p>
+        <p>
+          {{ occupationAldultDay }}
+          <span>{{ occupationAldultTime }}</span>
+        </p>
       </div>
     </div>
   </div>
