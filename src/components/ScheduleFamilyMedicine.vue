@@ -27,7 +27,8 @@ const {
   evening,
   eveningTime,
 } = schedule.value
-const { title, note1, note2 } = familyMedicine.value
+const { title, note1, note2, doctorTsai, doctorChang, doctorLin, doctorShi, doctorChu, doctorLee } =
+  familyMedicine.value
 </script>
 <template>
   <div class="scheduleOphthalmology">
@@ -87,32 +88,32 @@ const { title, note1, note2 } = familyMedicine.value
             </td>
             <td>
               <a href="/">
-                <p>{{ wang }}</p>
+                <p>{{ doctorTsai }}</p>
               </a>
             </td>
             <td>
               <a href="/">
-                <p>{{ wang }}</p>
+                <p>{{ doctorLin }}</p>
               </a>
             </td>
             <td>
               <a href="/">
-                <p>{{ wang }}</p>
+                <p>{{ doctorShi }}</p>
               </a>
             </td>
             <td>
               <a href="/">
-                <p>{{ xu }}</p>
+                <p>{{ doctorLee }}</p>
               </a>
             </td>
             <td>
               <a href="/">
-                <p>{{ huang }}</p>
+                <p>{{ doctorChang }}</p>
               </a>
             </td>
             <td>
               <a href="/">
-                <p>{{ wang }}</p>
+                <p>{{ doctorChu }}</p>
               </a>
             </td>
             <td>
@@ -128,17 +129,17 @@ const { title, note1, note2 } = familyMedicine.value
             </td>
             <td>
               <a href="/">
-                <p>{{ xu }}</p>
+                <p>{{ doctorLee }}</p>
               </a>
             </td>
             <td>
               <a href="/">
-                <p>{{ huang }}</p>
+                <p>{{ doctorChang }}</p>
               </a>
             </td>
             <td>
               <a href="/">
-                <p>{{ wang }}</p>
+                <p>{{ doctorChu }}</p>
               </a>
             </td>
             <td>
@@ -148,7 +149,7 @@ const { title, note1, note2 } = familyMedicine.value
             </td>
             <td>
               <a href="/">
-                <p>{{ wang }}</p>
+                <p>{{ doctorChang }}</p>
               </a>
             </td>
             <td>
@@ -184,7 +185,7 @@ const { title, note1, note2 } = familyMedicine.value
             </td>
             <td>
               <a href="/">
-                <p>{{ wang }}</p>
+                <p>{{ doctorChu }}</p>
               </a>
             </td>
             <td>
