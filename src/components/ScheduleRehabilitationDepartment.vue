@@ -253,13 +253,17 @@ const {
         </div>
       </div>
       <div class="details-occupation">
-        <p>{{ occupationTimeTitle }}</p>
-        <p>{{ occupationChild }}</p>
+        <p class="details-occupation-title">
+          {{ occupationTimeTitle }}
+        </p>
+        <p class="details-occupation-identity">
+          {{ occupationChild }}
+        </p>
         <p>
           {{ occupationChildDay }}
           <span>{{ occupationChildTime }}</span>
         </p>
-        <p>
+        <p class="details-occupation-identity">
           {{ occupationAldult }}
         </p>
         <p>
@@ -425,6 +429,26 @@ const {
           width: min(6%, 1.4rem);
         }
       }
+    }
+  }
+  .details-occupation {
+    display: flex;
+    align-items: center;
+
+    &-title {
+      font-size: 2rem;
+      font-weight: 700;
+      color: $green-1;
+      border-left: 0.5rem solid $green-1;
+      padding: 1.5rem 1rem 1.5rem 0.5rem;
+    }
+
+    &-identity {
+      background: $white-1;
+      font-size: 2rem;
+      font-weight: 500;
+      color: $green-1;
+      padding: 1.5rem 2.2rem;
     }
   }
 }
