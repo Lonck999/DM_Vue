@@ -1,6 +1,7 @@
 <script setup>
 import map from '@/assets/img/map.png'
-import { reactive } from 'vue'
+import apiData from '@/api/index'
+import { reactive, onMounted, toRefs } from 'vue'
 const navLists = reactive([
   { name: '叫號進度', link: '' },
   { name: '門診時間', link: '' },
@@ -9,6 +10,24 @@ const navLists = reactive([
   { name: '聯絡我們', link: '' },
   { name: '掛號查詢', link: '' },
 ])
+const footerData = reactive({
+  name: '',
+  phone: '',
+  zipCode: '',
+  address: '',
+  email: '',
+})
+
+const { name, phone, zipCode, address, email } = toRefs(footerData)
+
+onMounted(async () => {
+  const token = await apiData.getAccessToken()
+  name.value = token.名稱
+  phone.value = token.電話
+  zipCode.value = token.郵遞區號
+  address.value = token.地址
+  email.value = token.Email
+})
 </script>
 
 <template>
@@ -23,10 +42,10 @@ const navLists = reactive([
         <img :src="map" alt="" />
       </a>
       <div class="map-info">
-        <p class="map-info-title">德美診所</p>
-        <p class="map-info-address">地址：234新北市永和區中正路455-1號</p>
-        <p class="map-info-phone">電話：02-2927-3001</p>
-        <p class="map-info-email">Email：dl.dmmm@gmail.com</p>
+        <p class="map-info-title">{{ name }}</p>
+        <p class="map-info-address">地址：{{ zipCode }} {{ address }}</p>
+        <p class="map-info-phone">電話：{{ phone }}</p>
+        <p class="map-info-email">Email：{{ email }}</p>
       </div>
     </div>
   </footer>
