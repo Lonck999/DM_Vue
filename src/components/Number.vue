@@ -1,6 +1,6 @@
 <script setup>
 import immediate1 from '@/assets/img/immediate-1.png'
-import immediate2 from '@/assets/img/immediate-2.png'\
+import immediate2 from '@/assets/img/immediate-2.png'
 import { ref, reactive } from 'vue'
 
 const now = ref('叫號進度')
