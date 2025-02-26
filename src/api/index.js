@@ -7,12 +7,9 @@ export default {
       API_ID: 'DM',
       API_Secret: '08727379',
     }
-    const headers = {
-      Accept: 'application/json',
-    }
 
     try {
-      const response = await axios.get(url, { headers, params })
+      const response = await axios.get(url, { params })
       if (response.data.Success) {
         const date = response.data.Data[0]
         return date
