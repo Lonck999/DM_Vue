@@ -2,10 +2,10 @@
 import immediate1 from '@/assets/img/immediate-1.png'
 import immediate2 from '@/assets/img/immediate-2.png'
 import nowNumber from '@/api/nowNumber'
-import { ref, reactive, onMounted } from 'vue'
+import { ref, onMounted } from 'vue'
 
 const now = ref('叫號進度')
-const numbers = reactive([
+const numbers = ref([
   {
     title: '一<br>診',
     department: '家醫科',
@@ -34,7 +34,8 @@ const numbers = reactive([
 
 onMounted(async () => {
   const nowNumberData = await nowNumber.getNowNumber()
-  console.log(nowNumberData)
+  numbers.value = nowNumberData
+  console.log(numbers.value)
 })
 </script>
 
@@ -46,27 +47,27 @@ onMounted(async () => {
         v-for="number in numbers"
         :key="number.title"
         :style="{
-          backgroundImage: `url(${number.immediate ? immediate1 : immediate2})`,
+          backgroundImage: `url(${number.代碼 === '1' || number.代碼 === '3' ? immediate1 : immediate2})`,
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
           backgroundSize: 'cover',
         }"
         class="number-box-item"
       >
-        <p v-html="number.title" class="number-box-item-title"></p>
+        <p v-html="number.名稱" class="number-box-item-title"></p>
         <div class="number-box-item-content">
           <p class="number-box-item-content-department">
-            科別 - <span>{{ number.department }}</span>
+            科別 - <span>{{ number.科別 }}</span>
           </p>
           <p>看診號碼</p>
-          <p class="number-box-item-content-number">{{ number.number }}</p>
+          <p class="number-box-item-content-number">{{ number.看診號碼 }}</p>
         </div>
         <div class="number-box-item-content">
           <p class="number-box-item-content-doctor">
-            醫師 - <span>{{ number.doctor }}</span>
+            醫師 - <span>{{ number.醫師 }}</span>
           </p>
           <p>候診人數</p>
-          <p class="number-box-item-content-waiting">{{ number.waiting }}</p>
+          <p class="number-box-item-content-waiting">{{ number.候診人數 }}</p>
         </div>
       </div>
     </div>
@@ -119,6 +120,7 @@ onMounted(async () => {
       }
 
       &-title {
+        width: 3rem;
         background: $green-2;
         border-radius: 0.5rem;
         font-size: 3.2rem;
