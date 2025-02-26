@@ -5,32 +5,7 @@ import nowNumber from '@/api/nowNumber'
 import { ref, onMounted } from 'vue'
 
 const now = ref('叫號進度')
-const numbers = ref([
-  {
-    title: '一<br>診',
-    department: '家醫科',
-    number: '10',
-    doctor: '張三三',
-    waiting: '10',
-    immediate: true,
-  },
-  {
-    title: '二<br>診',
-    department: '家醫科',
-    number: '10',
-    doctor: '張三三',
-    waiting: '10',
-    immediate: false,
-  },
-  {
-    title: '三<br>診',
-    department: '家醫科',
-    number: '10',
-    doctor: '張三三',
-    waiting: '10',
-    immediate: true,
-  },
-])
+const numbers = ref([])
 
 onMounted(async () => {
   const nowNumberData = await nowNumber.getNowNumber()
