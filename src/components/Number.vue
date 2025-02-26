@@ -1,7 +1,6 @@
 <script setup>
 import immediate1 from '@/assets/img/immediate-1.png'
-import immediate2 from '@/assets/img/immediate-2.png'
-import axios from 'axios'
+import immediate2 from '@/assets/img/immediate-2.png'\
 import { ref, reactive } from 'vue'
 
 const now = ref('叫號進度')
@@ -31,31 +30,6 @@ const numbers = reactive([
     immediate: true,
   },
 ])
-
-const url = 'https://www.dltech.com.tw/DLWabAPI-Official/api/Authoutication/AccessToken'
-const params = {
-  API_ID: 'DM',
-  API_Secret: '08727379',
-}
-const headers = {
-  Accept: 'application/json',
-}
-
-axios
-  .get(url, { headers, params })
-  .then((response) => {
-    // 確保請求成功並檢查 response 中的結構
-    if (response.data.Success) {
-      // 假設 token 位於回應的第一筆資料的 Token 欄位
-      const token = response.data.Data[0].Token
-      console.log('Token:', token)
-    } else {
-      console.error('未能成功取得 Token:', response.data.Cont)
-    }
-  })
-  .catch((error) => {
-    console.error('請求失敗:', error)
-  })
 </script>
 
 <template>
