@@ -21,12 +21,12 @@ const footerData = reactive({
 const { name, phone, zipCode, address, email } = toRefs(footerData)
 
 onMounted(async () => {
-  const token = await apiData.getAccessToken()
-  name.value = token.名稱
-  phone.value = token.電話
-  zipCode.value = token.郵遞區號
-  address.value = token.地址
-  email.value = token.Email
+  const date = await apiData.getAccessToken()
+  name.value = date.名稱
+  phone.value = date.電話
+  zipCode.value = date.郵遞區號
+  address.value = date.地址
+  email.value = date.Email
 })
 </script>
 
