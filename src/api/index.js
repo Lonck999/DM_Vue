@@ -7,7 +7,6 @@ export default {
       API_ID: 'DM',
       API_Secret: '08727379',
     }
-
     try {
       const response = await axios.get(url, { params })
       if (response.data.Success) {
