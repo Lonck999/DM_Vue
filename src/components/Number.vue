@@ -11,7 +11,6 @@ const numbers = ref([])
 onMounted(async () => {
   const nowNumberData = await nowNumber.getNowNumber()
   numbers.value = nowNumberData
-  console.log(numbers.value)
 })
 </script>
 
