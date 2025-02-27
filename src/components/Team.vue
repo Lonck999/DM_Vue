@@ -102,9 +102,14 @@ const team = reactive([
       width: 25%;
       text-align: center;
 
+      &:hover img {
+        transition: all 0.3s ease;
+        transform: scale(1.07);
+      }
+
       .team-item-img {
-        width: 35rem;
-        height: 35rem;
+        width: 36rem;
+        height: 36rem;
         border-radius: 50%;
         overflow: hidden;
         margin: 0 auto;
