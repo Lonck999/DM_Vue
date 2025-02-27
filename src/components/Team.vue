@@ -97,6 +97,7 @@ const team = reactive([
     display: flex;
     align-items: center;
     flex-wrap: wrap;
+    padding-bottom: 15rem;
 
     .team-item {
       width: 25%;
@@ -129,7 +130,7 @@ const team = reactive([
         margin: 0 auto;
         margin-top: 2rem;
         border-top: 1px solid $green-1;
-        padding-top: 1.2rem;
+        padding-top: 0.8rem;
       }
     }
   }
