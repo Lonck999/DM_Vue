@@ -1,6 +1,7 @@
 <script setup>
 import immediate1 from '@/assets/img/immediate-1.png'
 import immediate2 from '@/assets/img/immediate-2.png'
+import rest from '@/assets/img/rest.png'
 import nowNumber from '@/api/nowNumber'
 import { ref, onMounted } from 'vue'
 
@@ -29,21 +30,26 @@ onMounted(async () => {
         }"
         class="number-box-item"
       >
-        <p v-html="number.名稱" class="number-box-item-title"></p>
-        <div class="number-box-item-content">
-          <p class="number-box-item-content-department">
-            科別 - <span>{{ number.科別 }}</span>
-          </p>
-          <p>看診號碼</p>
-          <p class="number-box-item-content-number">{{ number.看診號碼 }}</p>
-        </div>
-        <div class="number-box-item-content">
-          <p class="number-box-item-content-doctor">
-            醫師 - <span>{{ number.醫師 }}</span>
-          </p>
-          <p>候診人數</p>
-          <p class="number-box-item-content-waiting">{{ number.候診人數 }}</p>
-        </div>
+        <template v-if="number.診間狀態 === '看診中'">
+          <p v-html="number.名稱" class="number-box-item-title"></p>
+          <div class="number-box-item-content">
+            <p class="number-box-item-content-department">
+              科別 - <span>{{ number.科別 }}</span>
+            </p>
+            <p>看診號碼</p>
+            <p class="number-box-item-content-number">{{ number.看診號碼 }}</p>
+          </div>
+          <div class="number-box-item-content">
+            <p class="number-box-item-content-doctor">
+              醫師 - <span>{{ number.醫師 }}</span>
+            </p>
+            <p>候診人數</p>
+            <p class="number-box-item-content-waiting">{{ number.候診人數 }}</p>
+          </div>
+        </template>
+        <template v-else>
+          <img :src="rest" alt="休診" class="number-box-item-rest" />
+        </template>
       </div>
     </div>
   </section>
@@ -154,6 +160,15 @@ onMounted(async () => {
 
         &-waiting {
           color: $white-3;
+        }
+      }
+
+      &-rest {
+        width: 48%;
+        object-fit: contain;
+
+        @media screen and (max-width: 992px) {
+          height: 28.6rem;
         }
       }
     }
