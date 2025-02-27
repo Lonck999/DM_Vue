@@ -27,7 +27,7 @@ const { title, note } = toRefs(schedule)
   width: min(100%, 192rem);
   background: url('@/assets/img/background-2.png') no-repeat top center;
   background-size: cover;
-  padding-top: 8rem;
+  padding: 8rem 0;
 
   .schedule-title {
     text-align: center;
