@@ -101,9 +101,13 @@ const team = reactive([
     .team-item {
       width: 25%;
       text-align: center;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: $green-1;
+      margin-top: 5rem;
 
       &:hover img {
-        transition: all 0.3s ease;
+        transition: all 0.4s ease;
         transform: scale(1.07);
       }
 
@@ -118,6 +122,14 @@ const team = reactive([
           width: 100%;
           object-fit: contain;
         }
+      }
+
+      p {
+        width: 25%;
+        margin: 0 auto;
+        margin-top: 2rem;
+        border-top: 1px solid $green-1;
+        padding-top: 1.2rem;
       }
     }
   }
