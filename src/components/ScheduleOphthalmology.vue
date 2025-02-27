@@ -2,7 +2,7 @@
 import { useTableStore } from '@/stores/table'
 import { storeToRefs } from 'pinia'
 import ophthalmologyApi from '@/api/ophthalmology'
-import { onMounted } from 'vue'
+import { ref, onMounted } from 'vue'
 const tableStore = useTableStore()
 const { schedule, ophthalmology } = storeToRefs(tableStore)
 const {
@@ -29,10 +29,11 @@ const {
   eveningTime,
 } = schedule.value
 const { title, note, doctorWang, doctorXu, doctorHuang } = ophthalmology.value
-
+const apiData = ref([])
 onMounted(async () => {
   const ophthalmologyList = await ophthalmologyApi.getOphthalmologyList()
-  console.log(ophthalmologyList)
+  apiData.value = ophthalmologyList
+  console.log(apiData.value)
 })
 </script>
 <template>
