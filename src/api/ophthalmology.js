@@ -16,7 +16,7 @@ export default {
     try {
       const response = await axios.get(url, { headers })
       if (response.data.Success) {
-        return response.data.Data
+        return response.data.Data[0]
       } else {
         console.error('眼科列表請求失敗:', response.data.Cont)
         return null
