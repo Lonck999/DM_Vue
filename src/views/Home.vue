@@ -2,6 +2,7 @@
 import Main from '@/components/Main.vue'
 import Number from '@/components/Number.vue'
 import Schedule from '@/components/Schedule.vue'
+import Team from '@/components/Team.vue'
 </script>
 
 <template>
@@ -9,6 +10,7 @@ import Schedule from '@/components/Schedule.vue'
     <Main />
     <Number />
     <Schedule />
+    <Team />
   </div>
 </template>
 
