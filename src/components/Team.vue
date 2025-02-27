@@ -14,6 +14,12 @@ const title = ref('醫療團隊')
   height: 100%;
   background: $white-5;
   background-size: cover;
-  margin-top: 10rem;
+  h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: $green-1;
+    text-align: center;
+    padding-top: 8rem;
+  }
 }
 </style>
