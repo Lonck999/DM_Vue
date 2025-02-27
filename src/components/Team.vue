@@ -10,7 +10,10 @@ const title = ref('醫療團隊')
 
 <style lang="scss" scoped>
 .team {
-  width: 100%;
+  width: min(100%, 192rem);
   height: 100%;
+  background: $white-5;
+  background-size: cover;
+  margin-top: 10rem;
 }
 </style>
