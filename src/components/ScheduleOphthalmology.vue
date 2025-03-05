@@ -5,34 +5,13 @@ import ophthalmologyApi from '@/api/ophthalmology'
 import { ref, onMounted } from 'vue'
 const tableStore = useTableStore()
 const { schedule, ophthalmology } = storeToRefs(tableStore)
-const {
-  monCH,
-  monEN,
-  tueCH,
-  tueEN,
-  wedCH,
-  wedEN,
-  thuCH,
-  thuEN,
-  friCH,
-  friEN,
-  satCH,
-  satEN,
-  sunCH,
-  sunEN,
-  morning,
-  morningTime,
-  afternoon,
-  afternoonTime,
-  evening,
-  eveningTime,
-} = schedule.value
+const { sunCH, sunEN, morning, afternoon, evening } = schedule.value
 const { doctorWang, doctorXu, doctorHuang } = ophthalmology.value
 const apiData = ref([])
 onMounted(async () => {
   const ophthalmologyList = await ophthalmologyApi.getOphthalmologyList()
   apiData.value = ophthalmologyList
-  console.log(apiData.value.班表內容)
+  console.log(apiData.value)
 })
 </script>
 <template>
@@ -51,11 +30,11 @@ onMounted(async () => {
             <th>
               <p>{{ apiData.表頭 }}</p>
             </th>
-            <th>
-              <p>{{ monCH }}</p>
-              <p>{{ monEN }}</p>
+            <th v-for="data in apiData.班表內容" :key="data.順序">
+              <p>{{ data.星期 }}</p>
+              <p>{{ data.星期_英 }}</p>
             </th>
-            <th>
+            <!-- <th>
               <p>{{ tueCH }}</p>
               <p>{{ tueEN }}</p>
             </th>
@@ -74,7 +53,7 @@ onMounted(async () => {
             <th>
               <p>{{ satCH }}</p>
               <p>{{ satEN }}</p>
-            </th>
+            </th> -->
             <th>
               <p>{{ sunCH }}</p>
               <p>{{ sunEN }}</p>
@@ -85,7 +64,7 @@ onMounted(async () => {
           <tr>
             <td>
               <p>{{ morning }}</p>
-              <p>{{ morningTime }}</p>
+              <p>{{ apiData.早 }}</p>
             </td>
             <td>
               <a href="/">
@@ -126,7 +105,7 @@ onMounted(async () => {
           <tr>
             <td>
               <p>{{ afternoon }}</p>
-              <p>{{ afternoonTime }}</p>
+              <p>{{ apiData.午 }}</p>
             </td>
             <td>
               <a href="/">
@@ -167,7 +146,7 @@ onMounted(async () => {
           <tr>
             <td>
               <p>{{ evening }}</p>
-              <p>{{ eveningTime }}</p>
+              <p>{{ apiData.晚 }}</p>
             </td>
             <td>
               <a href="/">
