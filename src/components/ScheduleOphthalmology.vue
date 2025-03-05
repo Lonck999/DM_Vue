@@ -6,7 +6,6 @@ import { ref, onMounted } from 'vue'
 const tableStore = useTableStore()
 const { schedule, ophthalmology } = storeToRefs(tableStore)
 const {
-  week,
   monCH,
   monEN,
   tueCH,
@@ -28,28 +27,29 @@ const {
   evening,
   eveningTime,
 } = schedule.value
-const { title, note, doctorWang, doctorXu, doctorHuang } = ophthalmology.value
+const { doctorWang, doctorXu, doctorHuang } = ophthalmology.value
 const apiData = ref([])
 onMounted(async () => {
   const ophthalmologyList = await ophthalmologyApi.getOphthalmologyList()
   apiData.value = ophthalmologyList
-  console.log(apiData.value)
+  console.log(apiData.value.班表內容)
 })
 </script>
 <template>
   <div class="scheduleOphthalmology">
     <div class="scheduleOphthalmology-title">
-      <p>{{ title }}</p>
-      <p>
-        {{ note }}
+      <p>{{ apiData.門診科別 }}</p>
+      <p v-if="apiData && apiData.依附科別清單 && apiData.依附科別清單.length > 0">
+        {{ apiData.依附科別清單[0].診療項目 }}
       </p>
+      <p v-else></p>
     </div>
     <div>
       <table class="scheduleOphthalmology-table">
         <thead>
           <tr>
             <th>
-              <p>{{ week }}</p>
+              <p>{{ apiData.表頭 }}</p>
             </th>
             <th>
               <p>{{ monCH }}</p>
