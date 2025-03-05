@@ -6,8 +6,12 @@ import { ref, onMounted } from 'vue'
 const tableStore = useTableStore()
 const { schedule, ophthalmology } = storeToRefs(tableStore)
 const { sunCH, sunEN, morning, afternoon, evening } = schedule.value
-const { doctorWang, doctorXu, doctorHuang } = ophthalmology.value
+const { doctorWang } = ophthalmology.value
 const apiData = ref([])
+function getHtmlString(str) {
+  if (!str) return ''
+  return str.replace('\r\n', '<br>')
+}
 onMounted(async () => {
   const ophthalmologyList = await ophthalmologyApi.getOphthalmologyList()
   apiData.value = ophthalmologyList
@@ -66,12 +70,12 @@ onMounted(async () => {
               <p>{{ morning }}</p>
               <p>{{ apiData.早 }}</p>
             </td>
-            <td>
+            <td v-for="morning in apiData.班表內容" :key="morning.順序">
               <a href="/">
-                <p>{{ doctorWang }}</p>
+                <p>{{ morning.早 }}</p>
               </a>
             </td>
-            <td>
+            <!-- <td>
               <a href="/">
                 <p>{{ doctorWang }}</p>
               </a>
@@ -95,7 +99,7 @@ onMounted(async () => {
               <a href="/">
                 <p>{{ doctorWang }}</p>
               </a>
-            </td>
+            </td> -->
             <td>
               <a href="/">
                 <p></p>
@@ -107,12 +111,13 @@ onMounted(async () => {
               <p>{{ afternoon }}</p>
               <p>{{ apiData.午 }}</p>
             </td>
-            <td>
-              <a href="/">
-                <p>{{ doctorXu }}</p>
+            <td v-for="afternoon in apiData.班表內容" :key="afternoon.順序">
+              <p v-if="afternoon.午 === '–'"></p>
+              <a href="/" v-else>
+                <p v-html="getHtmlString(afternoon.午)"></p>
               </a>
             </td>
-            <td>
+            <!-- <td>
               <a href="/">
                 <p>{{ doctorHuang }}</p>
               </a>
@@ -136,7 +141,7 @@ onMounted(async () => {
               <a href="/">
                 <p></p>
               </a>
-            </td>
+            </td> -->
             <td>
               <a href="/">
                 <p></p>
@@ -296,5 +301,11 @@ onMounted(async () => {
       }
     }
   }
+}
+
+.time {
+  color: $black-6;
+  font-size: 1.6rem;
+  font-weight: 400;
 }
 </style>
