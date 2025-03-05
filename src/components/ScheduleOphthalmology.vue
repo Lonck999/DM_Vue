@@ -4,9 +4,8 @@ import { storeToRefs } from 'pinia'
 import ophthalmologyApi from '@/api/ophthalmology'
 import { ref, onMounted } from 'vue'
 const tableStore = useTableStore()
-const { schedule, ophthalmology } = storeToRefs(tableStore)
+const { schedule } = storeToRefs(tableStore)
 const { sunCH, sunEN, morning, afternoon, evening } = schedule.value
-const { doctorWang } = ophthalmology.value
 const apiData = ref([])
 function getHtmlString(str) {
   if (!str) return ''
@@ -38,26 +37,6 @@ onMounted(async () => {
               <p>{{ data.星期 }}</p>
               <p>{{ data.星期_英 }}</p>
             </th>
-            <!-- <th>
-              <p>{{ tueCH }}</p>
-              <p>{{ tueEN }}</p>
-            </th>
-            <th>
-              <p>{{ wedCH }}</p>
-              <p>{{ wedEN }}</p>
-            </th>
-            <th>
-              <p>{{ thuCH }}</p>
-              <p>{{ thuEN }}</p>
-            </th>
-            <th>
-              <p>{{ friCH }}</p>
-              <p>{{ friEN }}</p>
-            </th>
-            <th>
-              <p>{{ satCH }}</p>
-              <p>{{ satEN }}</p>
-            </th> -->
             <th>
               <p>{{ sunCH }}</p>
               <p>{{ sunEN }}</p>
@@ -75,31 +54,6 @@ onMounted(async () => {
                 <p>{{ morning.早 }}</p>
               </a>
             </td>
-            <!-- <td>
-              <a href="/">
-                <p>{{ doctorWang }}</p>
-              </a>
-            </td>
-            <td>
-              <a href="/">
-                <p>{{ doctorWang }}</p>
-              </a>
-            </td>
-            <td>
-              <a href="/">
-                <p>{{ doctorXu }}</p>
-              </a>
-            </td>
-            <td>
-              <a href="/">
-                <p>{{ doctorHuang }}</p>
-              </a>
-            </td>
-            <td>
-              <a href="/">
-                <p>{{ doctorWang }}</p>
-              </a>
-            </td> -->
             <td>
               <a href="/">
                 <p></p>
@@ -117,31 +71,6 @@ onMounted(async () => {
                 <p v-html="getHtmlString(afternoon.午)"></p>
               </a>
             </td>
-            <!-- <td>
-              <a href="/">
-                <p>{{ doctorHuang }}</p>
-              </a>
-            </td>
-            <td>
-              <a href="/">
-                <p>{{ doctorWang }}</p>
-              </a>
-            </td>
-            <td>
-              <a href="/">
-                <p></p>
-              </a>
-            </td>
-            <td>
-              <a href="/">
-                <p>{{ doctorWang }}</p>
-              </a>
-            </td>
-            <td>
-              <a href="/">
-                <p></p>
-              </a>
-            </td> -->
             <td>
               <a href="/">
                 <p></p>
@@ -153,34 +82,10 @@ onMounted(async () => {
               <p>{{ evening }}</p>
               <p>{{ apiData.晚 }}</p>
             </td>
-            <td>
-              <a href="/">
-                <p></p>
-              </a>
-            </td>
-            <td>
-              <a href="/">
-                <p></p>
-              </a>
-            </td>
-            <td>
-              <a href="/">
-                <p></p>
-              </a>
-            </td>
-            <td>
-              <a href="/">
-                <p>{{ doctorWang }}</p>
-              </a>
-            </td>
-            <td>
-              <a href="/">
-                <p></p>
-              </a>
-            </td>
-            <td>
-              <a href="/">
-                <p></p>
+            <td v-for="evening in apiData.班表內容" :key="evening.順序">
+              <p v-if="evening.晚 === '–'"></p>
+              <a href="/" v-else>
+                <p v-html="getHtmlString(evening.晚)"></p>
               </a>
             </td>
             <td>
