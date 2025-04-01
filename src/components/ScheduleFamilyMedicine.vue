@@ -14,9 +14,19 @@ function getHtmlString(str) {
   return lines
     .map((line, index) => {
       if (index === 1) {
-        return `<p style="color: #676765; font-size: 1.6rem; text-decoration: none; font-weight: 400; margin-top: 0.4rem;">${line}</p>`
+        return `
+        <p
+        style="color: #676765;
+        font-size: 1.6rem;
+        text-decoration: none;
+        font-weight: 400;
+        margin-top: 0.4rem;"
+        >${line}</p>`
       }
-      return `<p style="text-decoration: underline;">${line}</p>`
+      return `
+      <p
+      style="text-decoration: underline;"
+      >${line}</p>`
     })
     .join('')
 }
