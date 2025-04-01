@@ -2,36 +2,13 @@
 import { useTableStore } from '@/stores/table'
 import { storeToRefs } from 'pinia'
 import redNotice from '@/assets/img/red-notice.png'
+import rehabilitationDepartmentApi from '@/api/rehabilitationDepartment'
+import { ref, onMounted } from 'vue'
+
 const tableStore = useTableStore()
 const { schedule, rehabilitation } = storeToRefs(tableStore)
+const { sunCH, sunEN, morning, afternoon, evening } = schedule.value
 const {
-  week,
-  monCH,
-  monEN,
-  tueCH,
-  tueEN,
-  wedCH,
-  wedEN,
-  thuCH,
-  thuEN,
-  friCH,
-  friEN,
-  satCH,
-  satEN,
-  sunCH,
-  sunEN,
-  morning,
-  morningTime,
-  afternoon,
-  afternoonTime,
-  evening,
-  eveningTime,
-} = schedule.value
-const {
-  title,
-  note1,
-  note2,
-  doctor,
   rehabilitationTimeTitle,
   rehabilitationMorning,
   rehabilitationMorningTime,
@@ -48,17 +25,42 @@ const {
   occupationAldultDay,
   occupationAldultTime,
 } = rehabilitation.value
+const apiData = ref([])
+function getHtmlString(str) {
+  if (!str) return ''
+  const lines = str.split(/\r?\n/)
+  return lines
+    .map((line, index) => {
+      if (index === 1) {
+        return `
+        <p
+        style="color: #676765;
+        font-size: 1.6rem;
+        text-decoration: none;
+        font-weight: 400;
+        margin-top: 0.4rem;"
+        >${line}</p>`
+      }
+      return `
+      <p
+      style="text-decoration: underline;"
+      >${line}</p>`
+    })
+    .join('')
+}
+onMounted(async () => {
+  const rehabilitationDepartmentList = await rehabilitationDepartmentApi.getOphthalmologyList()
+  apiData.value = rehabilitationDepartmentList
+})
 </script>
 <template>
   <div class="scheduleOphthalmology">
     <div class="scheduleOphthalmology-title">
-      <p>{{ title }}</p>
+      <p>{{ apiData.門診科別 }}</p>
       <div>
-        <p>
-          {{ note1 }}
-        </p>
-        <p>
-          {{ note2 }}
+        <p v-for="item in apiData.依附科別清單" :key="item.科別名稱">
+          {{ item.科別名稱 }}：
+          <span>{{ item.診療項目 }}</span>
         </p>
       </div>
     </div>
@@ -67,31 +69,11 @@ const {
         <thead>
           <tr>
             <th>
-              <p>{{ week }}</p>
+              <p>{{ apiData.表頭 }}</p>
             </th>
-            <th>
-              <p>{{ monCH }}</p>
-              <p>{{ monEN }}</p>
-            </th>
-            <th>
-              <p>{{ tueCH }}</p>
-              <p>{{ tueEN }}</p>
-            </th>
-            <th>
-              <p>{{ wedCH }}</p>
-              <p>{{ wedEN }}</p>
-            </th>
-            <th>
-              <p>{{ thuCH }}</p>
-              <p>{{ thuEN }}</p>
-            </th>
-            <th>
-              <p>{{ friCH }}</p>
-              <p>{{ friEN }}</p>
-            </th>
-            <th>
-              <p>{{ satCH }}</p>
-              <p>{{ satEN }}</p>
+            <th v-for="data in apiData.班表內容" :key="data.順序">
+              <p>{{ data.星期 }}</p>
+              <p>{{ data.星期_英 }}</p>
             </th>
             <th>
               <p>{{ sunCH }}</p>
@@ -103,36 +85,12 @@ const {
           <tr>
             <td>
               <p>{{ morning }}</p>
-              <p>{{ morningTime }}</p>
+              <p>{{ apiData.早 }}</p>
             </td>
-            <td>
-              <a href="/">
-                <p>{{ doctor }}</p>
-              </a>
-            </td>
-            <td>
-              <a href="/">
-                <p>{{ doctor }}</p>
-              </a>
-            </td>
-            <td>
-              <a href="/">
-                <p>{{ doctor }}</p>
-              </a>
-            </td>
-            <td>
-              <a href="/">
-                <p>{{ doctor }}</p>
-              </a>
-            </td>
-            <td>
-              <a href="/">
-                <p>{{ doctor }}</p>
-              </a>
-            </td>
-            <td>
-              <a href="/">
-                <p>{{ doctor }}</p>
+            <td v-for="morning in apiData.班表內容" :key="morning.順序">
+              <p v-if="morning.早 === '–'"></p>
+              <a href="/" v-else>
+                <p v-html="getHtmlString(morning.早)"></p>
               </a>
             </td>
             <td>
@@ -144,36 +102,12 @@ const {
           <tr>
             <td>
               <p>{{ afternoon }}</p>
-              <p>{{ afternoonTime }}</p>
+              <p>{{ apiData.午 }}</p>
             </td>
-            <td>
-              <a href="/">
-                <p>{{ doctor }}</p>
-              </a>
-            </td>
-            <td>
-              <a href="/">
-                <p>{{ doctor }}</p>
-              </a>
-            </td>
-            <td>
-              <a href="/">
-                <p>{{ doctor }}</p>
-              </a>
-            </td>
-            <td>
-              <a href="/">
-                <p></p>
-              </a>
-            </td>
-            <td>
-              <a href="/">
-                <p>{{ doctor }}</p>
-              </a>
-            </td>
-            <td>
-              <a href="/">
-                <p></p>
+            <td v-for="afternoon in apiData.班表內容" :key="afternoon.順序">
+              <p v-if="afternoon.午 === '–'"></p>
+              <a href="/" v-else>
+                <p v-html="getHtmlString(afternoon.午)"></p>
               </a>
             </td>
             <td>
@@ -185,36 +119,12 @@ const {
           <tr>
             <td>
               <p>{{ evening }}</p>
-              <p>{{ eveningTime }}</p>
+              <p>{{ apiData.晚 }}</p>
             </td>
-            <td>
-              <a href="/">
-                <p></p>
-              </a>
-            </td>
-            <td>
-              <a href="/">
-                <p></p>
-              </a>
-            </td>
-            <td>
-              <a href="/">
-                <p></p>
-              </a>
-            </td>
-            <td>
-              <a href="/">
-                <p>{{ doctor }}</p>
-              </a>
-            </td>
-            <td>
-              <a href="/">
-                <p></p>
-              </a>
-            </td>
-            <td>
-              <a href="/">
-                <p></p>
+            <td v-for="evening in apiData.班表內容" :key="evening.順序">
+              <p v-if="evening.晚 === '–'"></p>
+              <a href="/" v-else>
+                <p v-html="getHtmlString(evening.晚)"></p>
               </a>
             </td>
             <td>
