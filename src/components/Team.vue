@@ -63,12 +63,18 @@ const team = reactive([
     img: linJiaYong,
   },
 ])
+const isShow = ref(true)
+const selectedMember = ref(null)
+const showMember = (member) => {
+  selectedMember.value = member
+  isShow.value = true
+}
 </script>
 <template>
   <section class="team">
     <h1>{{ title }}</h1>
     <div class="team-list">
-      <div v-for="item in team" :key="item.name" class="team-item">
+      <div v-for="item in team" :key="item.name" class="team-item" @click="showMember(item)">
         <div class="team-item-img">
           <img :src="item.img" alt="team-img" />
         </div>
@@ -77,6 +83,10 @@ const team = reactive([
         </p>
       </div>
     </div>
+    <teleport to="body" v-if="isShow && selectedMember">
+      <div>{{ selectedMember.name }}</div>
+      <div>{{ selectedMember.jobTitle }}</div>
+    </teleport>
   </section>
 </template>
 
