@@ -29,7 +29,6 @@ function getHtmlString(str) {
 onMounted(async () => {
   const ophthalmologyList = await ophthalmologyApi.getOphthalmologyList()
   apiData.value = ophthalmologyList
-  console.log(apiData.value)
 })
 </script>
 <template>
