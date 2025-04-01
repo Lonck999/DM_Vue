@@ -9,7 +9,8 @@ import qiuXuXiang from '@/assets/img/qiu-xu-xiang.jpg'
 import zhangShuJing from '@/assets/img/zhang-shu-jing.jpg'
 import liMingZhi from '@/assets/img/li-ming-zhi.jpg'
 import linJiaYong from '@/assets/img/lin-jia-yong.jpg'
-import { ref, reactive } from 'vue'
+import getTeamData from '@/api/team'
+import { ref, reactive, watch } from 'vue'
 const title = ref('醫療團隊')
 const team = reactive([
   {
@@ -63,18 +64,30 @@ const team = reactive([
     img: linJiaYong,
   },
 ])
-const isShow = ref(true)
-const selectedMember = ref(null)
-const showMember = (member) => {
-  selectedMember.value = member
-  isShow.value = true
+const isShow = ref(false)
+const drDetailData = ref({})
+watch(isShow, (newVal) => {
+  if (newVal) {
+    document.body.style.overflow = 'hidden'
+  } else {
+    document.body.style.overflow = 'auto'
+  }
+})
+const handleTeamClick = async (item) => {
+  try {
+    drDetailData.value = await getTeamData(item.name)
+    console.log(drDetailData.value)
+    isShow.value = true
+  } catch (error) {
+    console.error(error)
+  }
 }
 </script>
 <template>
   <section class="team">
     <h1>{{ title }}</h1>
     <div class="team-list">
-      <div v-for="item in team" :key="item.name" class="team-item" @click="showMember(item)">
+      <div v-for="item in team" :key="item.name" class="team-item" @click="handleTeamClick(item)">
         <div class="team-item-img">
           <img :src="item.img" alt="team-img" />
         </div>
@@ -83,11 +96,12 @@ const showMember = (member) => {
         </p>
       </div>
     </div>
-    <teleport to="body" v-if="isShow && selectedMember">
-      <div>{{ selectedMember.name }}</div>
-      <div>{{ selectedMember.jobTitle }}</div>
-    </teleport>
   </section>
+  <teleport to="body" v-if="isShow && drDetailData">
+    <div class="team-member-info">
+      <p>{{ drDetailData.Data.姓名 }}</p>
+    </div>
+  </teleport>
 </template>
 
 <style lang="scss" scoped>
@@ -144,5 +158,17 @@ const showMember = (member) => {
       }
     }
   }
+}
+
+.team-member-info {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
 }
 </style>
