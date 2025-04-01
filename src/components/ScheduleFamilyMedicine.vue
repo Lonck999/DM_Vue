@@ -10,12 +10,19 @@ const { sunCH, sunEN, morning, afternoon, evening } = schedule.value
 const apiData = ref([])
 function getHtmlString(str) {
   if (!str) return ''
-  return str.replace(/\r?\n/g, '<br>')
+  const lines = str.split(/\r?\n/)
+  return lines
+    .map((line, index) => {
+      if (index === 1) {
+        return `<p style="color: #676765; font-size: 1.6rem; text-decoration: none; font-weight: 400; margin-top: 0.4rem;">${line}</p>`
+      }
+      return `<p style="text-decoration: underline;">${line}</p>`
+    })
+    .join('')
 }
 onMounted(async () => {
   const familyMedicineList = await familyMedicineApi.getFamilyMedicineList()
   apiData.value = familyMedicineList
-  console.log(apiData.value)
 })
 </script>
 <template>
@@ -199,8 +206,7 @@ onMounted(async () => {
         }
         td:not(:first-child) {
           a {
-            text-decoration: underline;
-            text-decoration-color: $green-1;
+            text-decoration: none;
 
             p {
               color: $green-1;
