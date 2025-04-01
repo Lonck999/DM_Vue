@@ -50,7 +50,8 @@ onMounted(async () => {
               <p>{{ apiData.早 }}</p>
             </td>
             <td v-for="morning in apiData.班表內容" :key="morning.順序">
-              <a href="/">
+              <p v-if="morning.早 === '–'"></p>
+              <a href="/" v-else>
                 <p>{{ morning.早 }}</p>
               </a>
             </td>
