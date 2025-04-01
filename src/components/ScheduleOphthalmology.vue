@@ -67,7 +67,7 @@ onMounted(async () => {
             <td v-for="morning in apiData.班表內容" :key="morning.順序">
               <p v-if="morning.早 === '–'"></p>
               <a href="/" v-else>
-                <p>{{ morning.早 }}</p>
+                <p v-html="getHtmlString(morning.早)"></p>
               </a>
             </td>
             <td>
