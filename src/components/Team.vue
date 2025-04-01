@@ -76,7 +76,6 @@ watch(isShow, (newVal) => {
 const handleTeamClick = async (item) => {
   try {
     drDetailData.value = await getTeamData.getTeamData(item.name)
-    console.log(drDetailData.value)
     isShow.value = true
   } catch (error) {
     console.error(error)
