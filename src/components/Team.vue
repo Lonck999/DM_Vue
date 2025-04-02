@@ -98,7 +98,7 @@ const handleTeamClick = async (item) => {
   </section>
   <teleport to="body" v-if="isShow && drDetailData">
     <div class="team-member-info">
-      <p>{{ drDetailData.Data.姓名 }}</p>
+      <p>{{ drDetailData.姓名 }}</p>
     </div>
   </teleport>
 </template>
