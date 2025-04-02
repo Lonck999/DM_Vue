@@ -20,7 +20,7 @@ export default {
           DrName: drName,
         },
       })
-      return response.data
+      return response.data.Data
     } catch (error) {
       console.error('API 請求失敗:', error)
     }
