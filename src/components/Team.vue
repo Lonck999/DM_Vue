@@ -76,6 +76,7 @@ watch(isShow, (newVal) => {
 const handleTeamClick = async (item) => {
   try {
     drDetailData.value = await getTeamData.getTeamData(item.name)
+    console.log(drDetailData.value)
     isShow.value = true
   } catch (error) {
     console.error(error)
@@ -98,7 +99,9 @@ const handleTeamClick = async (item) => {
   </section>
   <teleport to="body" v-if="isShow && drDetailData">
     <div class="team-member-info">
-      <p>{{ drDetailData.姓名 }}</p>
+      <div class="team-member-info-content">
+        <p>{{ drDetailData.姓名 }}</p>
+      </div>
     </div>
   </teleport>
 </template>
@@ -160,14 +163,20 @@ const handleTeamClick = async (item) => {
 }
 
 .team-member-info {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(10px);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   z-index: 1000;
+
+  .team-member-info-content {
+    width: 100%;
+    background: $white-6;
+    margin: 4rem;
+  }
 }
 </style>
